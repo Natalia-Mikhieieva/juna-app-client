@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
 import CatalogPage from "./pages/CatalogPage";
+import ItemPage from "./pages/ItemPage";
 
 function App() {
   return (
@@ -10,7 +11,8 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/projects" element={<CatalogPage />} />
+        <Route path="/catalog" element={<CatalogPage />} />
+        <Route path="/catalog/item" element={<ItemPage />} />
       </Routes>
       JUNA app
     </div>
