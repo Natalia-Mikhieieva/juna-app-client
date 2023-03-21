@@ -1,8 +1,9 @@
-import logo from "./logo.svg";
+
 import "./App.css";
 
 function App() {
-  return <div className="App">JUNA app</div>;
+  return <div className="App">
+  JUNA app</div>;
 }
 
 export default App;
