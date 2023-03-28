@@ -1,32 +1,34 @@
 import { useState } from "react";
-import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 import Navbar from "../components/Navbar";
 
 const API_URL = "http://localhost:5005";
 
-function LoginPage(props) {
+function SignupPage(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const navigate = useNavigate();
 
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
+  const handleName = (e) => setName(e.target.value);
 
-  const handleLoginSubmit = (e) => {
+  const handleSignupSubmit = (e) => {
     e.preventDefault();
-    const requestBody = { email, password };
+    // Create an object representing the request body
+    const requestBody = { email, password, name };
 
+    // Make an axios request to the API
+    // If POST request is successful redirect to login page
+    // If the request resolves with an error, set the error message in the state
     axios
-      .post(`${API_URL}/auth/login`, requestBody)
+      .post(`${API_URL}/auth/signup`, requestBody)
       .then((response) => {
-        // Request to the server's endpoint `/auth/login` returns a response
-        // with the JWT string ->  response.data.authToken
-        console.log("JWT token", response.data.authToken);
-
-        navigate("/"); // <== ADD
+        navigate("/login");
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;
@@ -35,12 +37,12 @@ function LoginPage(props) {
   };
 
   return (
-    
-    <div className="LoginPage">
-    <Navbar> </Navbar>
-      <h1>Login</h1>
+    <div className="SignupPage">
+      <Navbar> </Navbar>
 
-      <form onSubmit={handleLoginSubmit}>
+      <h1>Sign Up</h1>
+
+      <form onSubmit={handleSignupSubmit}>
         <label>Email:</label>
         <input type="email" name="email" value={email} onChange={handleEmail} />
 
@@ -52,14 +54,18 @@ function LoginPage(props) {
           onChange={handlePassword}
         />
 
-        <button type="submit">Login</button>
+        <label>Name:</label>
+        <input type="text" name="name" value={name} onChange={handleName} />
+
+        <button type="submit">Sign Up</button>
       </form>
+
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <p>Don't have an account yet?</p>
-      <Link to={"/signup"}> Sign Up</Link>
+      <p>Already have account?</p>
+      <Link to={"/login"}> Login</Link>
     </div>
   );
 }
 
-export default LoginPage;
+export default SignupPage;
