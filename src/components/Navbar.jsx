@@ -28,7 +28,7 @@ function Navbar() {
           to="/cart"
           className={({ isActive }) => (isActive ? "selected" : "")}
         >
-          <img src="../images/cart-icon.svg" alt="cart-icon" />
+          <img src="./cart-icon.svg" alt="cart-icon" />
           Cart
         </NavLink>
 
