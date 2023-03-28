@@ -17,25 +17,24 @@ function AddItemPage() {
     e.preventDefault();
     // Create the body for the POST request
     const body = { title: title, 
-      price: price, 
+      price: Number(price), 
       brand:brand, 
       description: description, 
-      stock:stock,
+      stock:Number(stock),
       image:image};
 
     axios
     .post("http://localhost:5005/api/catalog", body)
     .then((response) => {
       // Reset the state
-      setTitle("");
-      setPrice(0);
-      setBrand("");
-      setDescription("");
-      setStock(0);
+      setTitle("")
+      setPrice(0)
+      setBrand("")
+      setDescription("")
+      setStock(0)
       setImage("");
 
-
-      // Navigate to the `/` page
+      // Navigate to the `/catalog` page
       alert("Item been added!")
       navigate("/catalog");
 
