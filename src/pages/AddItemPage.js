@@ -9,37 +9,38 @@ function AddItemPage() {
   const [description, setDescription] = useState("");
   const [stock, setStock] = useState(1);
   const [image, setImage] = useState("");
-  
+
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     // Prevent page reload on submit
     e.preventDefault();
     // Create the body for the POST request
-    const body = { title: title, 
-      price: Number(price), 
-      brand:brand, 
-      description: description, 
-      stock:Number(stock),
-      image:image};
+    const body = {
+      title: title,
+      price: Number(price),
+      brand: brand,
+      description: description,
+      stock: Number(stock),
+      image: image,
+    };
 
     axios
-    .post("http://localhost:5005/api/catalog", body)
-    .then((response) => {
-      // Reset the state
-      setTitle("")
-      setPrice(0)
-      setBrand("")
-      setDescription("")
-      setStock(0)
-      setImage("");
+      .post("http://localhost:5005/api/catalog", body)
+      .then((response) => {
+        // Reset the state
+        setTitle("");
+        setPrice(0);
+        setBrand("");
+        setDescription("");
+        setStock(0);
+        setImage("");
 
-      // Navigate to the `/catalog` page
-      alert("Item been added!")
-      navigate("/catalog");
-
-    })
-    .catch((error) => console.log(error));
+        // Navigate to the `/catalog` page
+        alert("Item been added!");
+        navigate("/catalog");
+      })
+      .catch((error) => console.log(error));
   };
 
   return (
@@ -62,28 +63,28 @@ function AddItemPage() {
           onChange={(e) => setBrand(e.target.value)}
           value={brand}
         />
-         <label>Description</label>
+        <label>Description</label>
         <input
           type="text"
           name="description"
           onChange={(e) => setDescription(e.target.value)}
           value={description}
         />
-         <label>Price</label>
+        <label>Price</label>
         <input
           type="number"
           name="price"
           onChange={(e) => setPrice(e.target.value)}
           value={price}
         />
-         <label>Stock</label>
+        <label>Stock</label>
         <input
           type="number"
           name="stock"
           onChange={(e) => setStock(e.target.value)}
           value={stock}
         />
-         <label>Image</label>
+        <label>Image</label>
         <input
           type="text"
           name="image"
@@ -91,8 +92,9 @@ function AddItemPage() {
           value={image}
         />
 
-
-        <button type="submit" className="btn add-btn">Add</button>
+        <button type="submit" className="btn add-btn">
+          Add
+        </button>
       </form>
     </div>
   );
