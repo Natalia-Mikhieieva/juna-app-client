@@ -1,12 +1,63 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700;900&display=swap");
 
-.navbar {
-    font-family: Inter, sans-serif;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter";
 }
-.navbar-list {
-    display: flex;
-    list-style: none;
+
+/* NAVBAR */
+.navigation {
+  height: 60px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  background-color: #fff;
+  color: black;
+  box-shadow: 0 2px 2px 2px rgba(9, 9, 9, 0.23);
 }
+
+.brand-name {
+  text-decoration: none;
+  color: black;
+  font-size: 1.3rem;
+  margin-left: 1rem;
+}
+.navigation-menu {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navigation-menu ul {
+  display: flex;
+  padding: 0;
+}
+.navigation-menu li {
+  list-style-type: none;
+  margin: 0 1rem;
+}
+.navigation-menu li a {
+  text-decoration: none;
+
+  width: 100%;
+  color: black;
+}
+
 .nav-logo {
-    height: 50px;
+  width: 25px;
+  margin-left: 10px;
 }
+
+.cart-logo {
+  width: 25px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
