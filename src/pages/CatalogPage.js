@@ -4,6 +4,7 @@ import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import "../styles/CatalogPage.css";
 import Title from "../components/Title";
+import FilterItems from './FilterItems'
 
 export default function CatalogPage() {
   const [items, setItems] = useState([]);
@@ -26,12 +27,21 @@ export default function CatalogPage() {
     getAllItems();
   }, []);
 
+  function filterItems(str){
+    let filterItems = items.filter((furniture) => {
+      return furniture.category === str; 
+        	// comparing category for displaying data
+    });
+    setItems(filterItems);
+  }
+
   return (
     <>
       <Navbar></Navbar>
       <Title text="Collection. Items are displayed here "></Title>
+      <FilterItems filterItems={filterItems}></FilterItems>
       <div className="add-button">
-        <Link to={`/allcatalogs/${catalogId}/add-item`}>
+        <Link to={`/catalog/add-item`}>
           <button>+ Add Item</button>
         </Link>
         <Link to={`/allcatalogs`}>
@@ -47,7 +57,7 @@ export default function CatalogPage() {
               <h3>{item.title}</h3>
               <span>{item.brand}</span>
               <p>{item.description}</p>
-              <p>{item.stock}</p>
+              <p>{item.category}</p>
               <p>{item.price}</p>
               <Link to={`/item/${item._id}`}>
                 <button>Check this item</button>

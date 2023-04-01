@@ -41,6 +41,7 @@ export default function ItemPage() {
       <p>You are in the catalog: {title}</p>
       <div className="card">
         <h1> Item </h1>
+<<<<<<< HEAD
         <img src={imageUrl} alt="item" />
         <h3>{title}</h3>
         <p>{description}</p>
@@ -50,9 +51,18 @@ export default function ItemPage() {
         {/*   <Link to={`/catalog/item-delete/${item._id}`}>
           <button>Edit this Delete</button>
         </Link>
+=======
+         <img src={item.imageUrl} alt="item" />
+        <h3>{item.title}</h3>
+        <span>{item.brand}</span>
+        <p>{item.description}</p>
+        <p>{item.stock}</p>
+        <p>{item.price}</p>
+        <button>Edit this Item</button>
+>>>>>>> c5e737da94da0a884e125122f05a5225eff0868d
         <Link to={`/catalog/item-edit/${item._id}`}>
           <button>Edit this Item</button>
-        </Link> */}
+        </Link>
       </div>
     </>
   );
