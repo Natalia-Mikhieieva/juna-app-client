@@ -32,10 +32,10 @@ function Navbar() {
 
           <li>
             <NavLink
-              to="/catalog"
+              to="/allcatalogs"
               className={({ isActive }) => (isActive ? "selected" : "")}
             >
-              Collection
+              All Collections
             </NavLink>
           </li>
 

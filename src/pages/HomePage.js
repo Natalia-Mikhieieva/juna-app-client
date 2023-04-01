@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import "../styles/HomePage.css";
 
-function HomePage() {
+export default function HomePage() {
   return (
     <>
       <Navbar></Navbar>
@@ -14,4 +14,3 @@ function HomePage() {
     </>
   );
 }
-export default HomePage;

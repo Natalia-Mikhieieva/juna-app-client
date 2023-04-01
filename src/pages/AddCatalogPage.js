@@ -2,17 +2,13 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import "../styles/AddItemPage.css";
+import "../styles/AddCatalogPage.css";
 import Title from "../components/Title";
 import { Link } from "react-router-dom";
 
-export default function AddItemPage() {
+export default function AddCatalogPage() {
   const [title, setTitle] = useState("");
-  const [price, setPrice] = useState(1);
-  const [brand, setBrand] = useState("");
   const [description, setDescription] = useState("");
-  const [stock, setStock] = useState(1);
-  const [image, setImage] = useState("");
 
   const navigate = useNavigate();
 
@@ -22,27 +18,18 @@ export default function AddItemPage() {
     // Create the body for the POST request
     const body = {
       title: title,
-      price: Number(price),
-      brand: brand,
       description: description,
-      stock: Number(stock),
-      image: image,
     };
 
     axios
-      .post("http://localhost:5005/api/catalog", body)
+      .post("http://localhost:5005/api/allcatalogs", body)
       .then((response) => {
-        // Reset the state
         setTitle("");
-        setPrice(0);
-        setBrand("");
         setDescription("");
-        setStock(0);
-        setImage("");
 
-        // Navigate to the `/catalog` page
+        // Navigate to the `/allcatalogs` page
         alert("Item been added!");
-        navigate("/catalog");
+        navigate("/allcatalogs");
       })
       .catch((error) => console.log(error));
   };
@@ -52,8 +39,8 @@ export default function AddItemPage() {
       <Navbar />
       <Title text="Add new Item here" />
       <div class="add-button">
-        <Link to={`/catalog`}>
-          <button>Back to the Collection</button>
+        <Link to={`/allcatalogs`}>
+          <button>Back</button>
         </Link>
       </div>
       <div className="container">
@@ -67,40 +54,12 @@ export default function AddItemPage() {
               value={title}
             />
 
-            <label>Brand</label>
-            <input
-              type="text"
-              name="brand"
-              onChange={(e) => setBrand(e.target.value)}
-              value={brand}
-            />
             <label>Description</label>
             <input
               type="text"
               name="description"
               onChange={(e) => setDescription(e.target.value)}
               value={description}
-            />
-            <label>Price</label>
-            <input
-              type="number"
-              name="price"
-              onChange={(e) => setPrice(e.target.value)}
-              value={price}
-            />
-            <label>Stock</label>
-            <input
-              type="number"
-              name="stock"
-              onChange={(e) => setStock(e.target.value)}
-              value={stock}
-            />
-            <label>Image</label>
-            <input
-              type="text"
-              name="image"
-              onChange={(e) => setImage(e.target.value)}
-              value={image}
             />
 
             <button type="submit" className="button">

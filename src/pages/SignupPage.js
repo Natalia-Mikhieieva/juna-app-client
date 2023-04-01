@@ -6,7 +6,7 @@ import "../styles/SignupPage.css";
 
 const API_URL = "http://localhost:5005";
 
-function SignupPage(props) {
+export default function SignupPage(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -75,5 +75,3 @@ function SignupPage(props) {
     </>
   );
 }
-
-export default SignupPage;

@@ -1,12 +1,11 @@
 // import axios from 'axios'
 
 
-function EditItem() {
+export default function EditItemPage() {
     return(
         <div>
-
+<p> Here you can edit page </p>
         </div>
     )
 }
 
-export default EditItem;

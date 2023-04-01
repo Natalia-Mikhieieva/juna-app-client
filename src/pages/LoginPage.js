@@ -6,7 +6,7 @@ import "../styles/LoginPage.css";
 
 const API_URL = "http://localhost:5005";
 
-function LoginPage(props) {
+export default function LoginPage(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
@@ -68,5 +68,3 @@ function LoginPage(props) {
     </>
   );
 }
-
-export default LoginPage;

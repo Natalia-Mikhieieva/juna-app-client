@@ -2,7 +2,7 @@ import Navbar from "../components/Navbar";
 import "../styles/CartPage.css";
 import Title from "../components/Title";
 
-function CartPage(props) {
+export default function CartPage() {
   return (
     <>
       <Navbar> </Navbar>
@@ -12,5 +12,3 @@ function CartPage(props) {
     </>
   );
 }
-
-export default CartPage;

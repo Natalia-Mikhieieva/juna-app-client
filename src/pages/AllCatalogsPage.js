@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import "../styles/AllCatalogsPage.css";
 import Title from "../components/Title";
 
-function AllCatalogsPage() {
+export default function AllCatalogsPage() {
   const [items, setItems] = useState([]);
 
   function getAllItems() {
@@ -24,9 +24,9 @@ function AllCatalogsPage() {
   return (
     <>
       <Navbar></Navbar>
-      <Title text="All Catalogs are displayed here "></Title>
-      <div class="add-button">
-        <Link to={`/catalog/add-catalog`}>
+      <Title text="All Collections are displayed here "></Title>
+      <div className="add-button">
+        <Link to={`/allcatalogs/add-catalog`}>
           <button>+ Add Catalog</button>
         </Link>
       </div>
@@ -37,7 +37,7 @@ function AllCatalogsPage() {
             <div className="card">
               <h3>{catalog.title}</h3>
               <p>{catalog.description}</p>
-              <Link to={`/catalogs/catalog/${catalog._id}`}>
+              <Link to={`/allcatalogs/${catalog._id}`}>
                 <button>Check Items in this catalog</button>
               </Link>
             </div>
@@ -47,5 +47,3 @@ function AllCatalogsPage() {
     </>
   );
 }
-
-export default AllCatalogsPage;
