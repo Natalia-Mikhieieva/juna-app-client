@@ -4,7 +4,7 @@ import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import "../styles/CatalogPage.css";
 import Title from "../components/Title";
-import FilterItems from './FilterItems'
+import FilterItems from "./FilterItems";
 
 export default function CatalogPage() {
   const [items, setItems] = useState([]);
@@ -27,10 +27,10 @@ export default function CatalogPage() {
     getAllItems();
   }, []);
 
-  function filterItems(str){
+  function filterItems(str) {
     let filterItems = items.filter((furniture) => {
-      return furniture.category === str; 
-        	// comparing category for displaying data
+      return furniture.category === str;
+      // comparing category for displaying data
     });
     setItems(filterItems);
   }
@@ -41,11 +41,11 @@ export default function CatalogPage() {
       <Title text="Collection. Items are displayed here "></Title>
       <FilterItems filterItems={filterItems}></FilterItems>
       <div className="add-button">
-        <Link to={`/catalog/add-item`}>
-          <button>+ Add Item</button>
+        <Link to={`/item/add-item`}>
+          <button>+ Add Item to this catalog </button>
         </Link>
         <Link to={`/allcatalogs`}>
-          <button>Back</button>
+          <button>Back to all catalogs</button>
         </Link>
       </div>
       <p>You are in the catalog: {title}</p>
@@ -53,12 +53,12 @@ export default function CatalogPage() {
         {items.map((item) => {
           return (
             <div className="card">
-              <img src={item.image} alt="item" />
-              <h3>{item.title}</h3>
-              <span>{item.brand}</span>
-              <p>{item.description}</p>
-              <p>{item.category}</p>
-              <p>{item.price}</p>
+              <img src={item.image} alt="item-pic" />
+              <h3> Item title: {item.title}</h3>
+              <p>Item brand: {item.brand}</p>
+              <p>Item description: {item.description}</p>
+              <p>Item category: {item.category}</p>
+              <p>Item price: {item.price}</p>
               <Link to={`/item/${item._id}`}>
                 <button>Check this item</button>
               </Link>

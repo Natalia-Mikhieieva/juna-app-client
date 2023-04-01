@@ -10,6 +10,7 @@ import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import AddCatalogPage from "./pages/AddCatalogPage";
 import ErrorPage from "./pages/ErrorPage";
+import EditItemPage from "./pages/EditItemPage";
 
 function App() {
   return (
@@ -20,10 +21,8 @@ function App() {
         <Route path="/allcatalogs" element={<AllCatalogsPage />} />
         <Route path="/allcatalogs/add-catalog" element={<AddCatalogPage />} />
         <Route path="/item/:itemId" element={<ItemPage />} />
-        <Route
-          path="allcatalogs/:catalogId/add-item"
-          element={<AddItemPage />}
-        />
+        <Route path="/item/:itemId/edit" element={<EditItemPage />} />
+        <Route path="/item/add-item" element={<AddItemPage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />

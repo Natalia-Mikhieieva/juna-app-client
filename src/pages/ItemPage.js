@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 export default function ItemPage() {
@@ -13,6 +13,8 @@ export default function ItemPage() {
   const [price, setPrice] = useState(null);
   const [imageUrl, setImageUrl] = useState(null);
   const { itemId } = useParams();
+  const { catalogId } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -31,38 +33,39 @@ export default function ItemPage() {
       .catch((err) => console.log(err));
   }, [itemId]);
 
+  const deleteItem = () => {
+    axios
+      .delete(`http://localhost:5005/api/item/${itemId}`)
+      .then(() => {
+        // Once the delete request is resolved successfully
+        // navigate back to the list of projects.
+        navigate("/projects");
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <>
       <Navbar></Navbar>
-      <Link to={`/allcatalogs`}>
+      <Link to={`/allcatalogs/${catalogId}`}>
         <button>Back</button>
       </Link>
 
       <p>You are in the catalog: {title}</p>
       <div className="card">
-        <h1> Item </h1>
-<<<<<<< HEAD
         <img src={imageUrl} alt="item" />
-        <h3>{title}</h3>
-        <p>{description}</p>
-        <p>{brand} </p>
-        <p>{stock}</p>
-        <p>{price} </p>
-        {/*   <Link to={`/catalog/item-delete/${item._id}`}>
-          <button>Edit this Delete</button>
-        </Link>
-=======
-         <img src={item.imageUrl} alt="item" />
-        <h3>{item.title}</h3>
-        <span>{item.brand}</span>
-        <p>{item.description}</p>
-        <p>{item.stock}</p>
-        <p>{item.price}</p>
-        <button>Edit this Item</button>
->>>>>>> c5e737da94da0a884e125122f05a5225eff0868d
-        <Link to={`/catalog/item-edit/${item._id}`}>
-          <button>Edit this Item</button>
-        </Link>
+        <h3>Item title: {title}</h3>
+        <p>Item description: {description}</p>
+        <p>Item brand: {brand} </p>
+        <p>Item stock: {stock}</p>
+        <p>Item price: {price} </p>
+        <div className="buttons">
+          <button onClick={deleteItem}>Delete this Item</button>
+
+          <Link to={`/catalog/${itemId}/edit`}>
+            <button>Edit this Item</button>
+          </Link>
+        </div>
       </div>
     </>
   );

@@ -35,8 +35,8 @@ export default function AllCatalogsPage() {
         {items.map((catalog) => {
           return (
             <div className="card">
-              <h3>{catalog.title}</h3>
-              <p>{catalog.description}</p>
+              <h3>Catalog title: {catalog.title}</h3>
+              <p>Catalog description {catalog.description}</p>
               <Link to={`/allcatalogs/${catalog._id}`}>
                 <button>Check Items in this catalog</button>
               </Link>

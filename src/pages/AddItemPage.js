@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import "../styles/AddItemPage.css";
 import Title from "../components/Title";
@@ -15,6 +15,8 @@ export default function AddItemPage() {
   const [image, setImage] = useState("");
 
   const navigate = useNavigate();
+  const { itemId } = useParams();
+  const { catalogId } = useParams();
 
   const handleSubmit = (e) => {
     // Prevent page reload on submit
@@ -30,7 +32,7 @@ export default function AddItemPage() {
     };
 
     axios
-      .post("http://localhost:5005/api/catalog", body)
+      .post("http://localhost:5005/api/items", body)
       .then((response) => {
         // Reset the state
         setTitle("");
@@ -42,7 +44,7 @@ export default function AddItemPage() {
 
         // Navigate to the `/catalog` page
         alert("Item been added!");
-        navigate("/catalog");
+        navigate(`/allcatalogs/${catalogId}`);
       })
       .catch((error) => console.log(error));
   };
@@ -51,10 +53,10 @@ export default function AddItemPage() {
     <>
       <Navbar />
       <Title text="Add new Item here" />
-      <div class="add-button">
-        <Link to={`/catalog`}>
+      <div className="add-button">
+        {/* <Link to={`/catalog`}>
           <button>Back to the Collection</button>
-        </Link>
+        </Link> */}
       </div>
       <div className="container">
         <div className="AddItem">
