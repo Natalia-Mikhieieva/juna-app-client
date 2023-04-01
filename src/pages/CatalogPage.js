@@ -4,13 +4,14 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import "../styles/CatalogPage.css";
 import Title from "../components/Title";
+import FilterItems from './FilterItems'
 
 function CatalogPage() {
   const [items, setItems] = useState([]);
 
   function getAllItems() {
     axios
-      .get("http://localhost:5005/api/catalog")
+      .get("http://localhost:5005/api/catalogs")
       .then((response) => {
         console.log("response.data", response.data);
         setItems(response.data);
@@ -21,11 +22,20 @@ function CatalogPage() {
     getAllItems();
   }, []);
 
+  function filterItems(str){
+    let filterItems = items.filter((furniture) => {
+      return furniture.category === str; 
+        	// comparing category for displaying data
+    });
+    setItems(filterItems);
+  }
+
   return (
     <>
       <Navbar></Navbar>
       <Title text="Collection. Items are displayed here "></Title>
-      <div class="add-button">
+      <FilterItems filterItems={filterItems}></FilterItems>
+      <div className="add-button">
         <Link to={`/catalog/add-item`}>
           <button>+ Add Item</button>
         </Link>
@@ -39,7 +49,7 @@ function CatalogPage() {
               <h3>{item.title}</h3>
               <span>{item.brand}</span>
               <p>{item.description}</p>
-              <p>{item.stock}</p>
+              <p>{item.category}</p>
               <p>{item.price}</p>
               <Link to={`/catalog/item/${item._id}`}>
                 <button>Know more about this item</button>

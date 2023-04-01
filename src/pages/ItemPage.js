@@ -23,7 +23,7 @@ function ItemPage() {
       <Navbar></Navbar>
       <div className="card">
         <h1> Item </h1>
-        {/*  <img src={item.imageUrl} alt="item" />
+         <img src={item.imageUrl} alt="item" />
         <h3>{item.title}</h3>
         <span>{item.brand}</span>
         <p>{item.description}</p>
@@ -32,7 +32,7 @@ function ItemPage() {
         <button>Edit this Item</button>
         <Link to={`/catalog/item-edit/${item._id}`}>
           <button>Edit this Item</button>
-        </Link> */}
+        </Link>
       </div>
     </div>
   );
