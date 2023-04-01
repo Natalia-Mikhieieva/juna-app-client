@@ -35,7 +35,7 @@ function Navbar() {
               to="/catalog"
               className={({ isActive }) => (isActive ? "selected" : "")}
             >
-              Catalog
+              Collection
             </NavLink>
           </li>
 

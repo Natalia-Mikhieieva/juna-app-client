@@ -7,6 +7,7 @@ import ErrorPage from "./pages/ErrorPage";
 import AddItemPage from "./pages/AddItemPage";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
+import CartPage from "./pages/CartPage";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/catalog" element={<CatalogPage />} />
         <Route path="/catalog/item/:id" element={<ItemPage />} />
         <Route path="/catalog/add-item" element={<AddItemPage />} />
+        <Route path="/cart" element={<CartPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
 

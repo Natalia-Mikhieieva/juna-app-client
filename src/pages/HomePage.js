@@ -1,15 +1,17 @@
 import React from "react";
 import Navbar from "../components/Navbar";
+import "../styles/HomePage.css";
 
 function HomePage() {
   return (
-    <div className="container">
-      <div className="row">
-        <Navbar> </Navbar>
-
-        <h1>Welcome to homepage</h1>
+    <>
+      <Navbar></Navbar>
+      <div className="container">
+        <div className="first-row">
+          <h1>Lorem ipsum</h1>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 export default HomePage;
