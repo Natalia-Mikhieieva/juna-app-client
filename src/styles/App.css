@@ -137,10 +137,10 @@ img {
 }
 
 .first-row {
-  background-image: url("../images/home-img.jpeg");
+  background-image: url("https://www.bhf.org.uk/-/media/images/shop/buyfurniture/furniturepage1200x630.png?rev=0c1a27e3612840d882d8c1664ee692fa");
   height: 100vh;
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: 120%;
   display: flex;
   align-items: center;
   justify-content: left;
