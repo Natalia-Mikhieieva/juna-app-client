@@ -4,6 +4,8 @@ import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
+
 export default function ItemPage() {
   const [item, setItem] = useState([]);
   const [title, setTitle] = useState(null);
@@ -18,7 +20,7 @@ export default function ItemPage() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5005/api/item/${itemId}`)
+      .get(`${API_URL}/api/item/${itemId}`)
       .then((response) => {
         console.log("response.data", response);
 

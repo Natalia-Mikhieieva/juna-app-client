@@ -5,6 +5,8 @@ import Navbar from "../components/Navbar";
 import Title from "../components/Title";
 import { Link } from "react-router-dom";
 
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
+
 export default function AddCatalogPage() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -21,7 +23,7 @@ export default function AddCatalogPage() {
     };
 
     axios
-      .post("http://localhost:5005/api/allcatalogs", body)
+      .post(`${API_URL}//api/allcatalogs`, body)
       .then((response) => {
         setTitle("");
         setDescription("");

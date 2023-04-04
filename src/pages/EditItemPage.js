@@ -6,6 +6,8 @@ import Navbar from "../components/Navbar";
 import Title from "../components/Title";
 import { Link } from "react-router-dom";
 
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
+
 export default function EditItemPage() {
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState(1);
@@ -32,7 +34,7 @@ export default function EditItemPage() {
     };
 
     axios
-      .get(`http://localhost:5005/api/item/${itemId}`)
+      .get(`${API_URL}/api/item/${itemId}`)
       .then((response) => {
         // Reset the state
         setTitle("");
@@ -48,13 +50,6 @@ export default function EditItemPage() {
       })
       .catch((error) => console.log(error));
   };
-
-  
-  
-  
-
-
-
 
   return (
     <>
@@ -112,7 +107,7 @@ export default function EditItemPage() {
               value={image}
             />
 
-            <button type="submit" className="button btn" >
+            <button type="submit" className="button btn">
               Add
             </button>
           </form>

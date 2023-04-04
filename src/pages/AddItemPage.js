@@ -5,6 +5,8 @@ import Navbar from "../components/Navbar";
 import Title from "../components/Title";
 import { Link } from "react-router-dom";
 
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
+
 export default function AddItemPage() {
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState(1);
@@ -31,7 +33,7 @@ export default function AddItemPage() {
     };
 
     axios
-      .post("http://localhost:5005/api/items", body)
+      .post(`${API_URL}/api/items`, body)
       .then((response) => {
         // Reset the state
         setTitle("");

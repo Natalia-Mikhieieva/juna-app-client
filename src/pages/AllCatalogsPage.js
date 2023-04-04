@@ -4,12 +4,14 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import Title from "../components/Title";
 
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
+
 export default function AllCatalogsPage() {
   const [items, setItems] = useState([]);
 
   function getAllItems() {
     axios
-      .get("http://localhost:5005/api/allcatalogs")
+      .get(`${API_URL}/api/allcatalogs`)
       .then((response) => {
         console.log("response.data", response.data);
         setItems(response.data);

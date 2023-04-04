@@ -5,6 +5,8 @@ import { Link, useParams } from "react-router-dom";
 import Title from "../components/Title";
 import FilterItems from "./FilterItems";
 
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
+
 export default function CatalogPage() {
   const [items, setItems] = useState([]);
   const [title, setTitle] = useState(null);
@@ -13,7 +15,7 @@ export default function CatalogPage() {
 
   function getAllItems() {
     axios
-      .get(`http://localhost:5005/api/allcatalogs/${catalogId}`)
+      .get(`${API_URL}/api/allcatalogs/${catalogId}`)
       .then((response) => {
         console.log("response.data", response.data);
         setItems(response.data.items);
