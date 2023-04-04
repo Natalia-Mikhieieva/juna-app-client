@@ -2,7 +2,6 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import "../styles/AddCatalogPage.css";
 import Title from "../components/Title";
 import { Link } from "react-router-dom";
 
@@ -40,7 +39,7 @@ export default function AddCatalogPage() {
       <Title text="Add new Item here" />
       <div class="add-button">
         <Link to={`/allcatalogs`}>
-          <button>Back</button>
+          <button className="btn">Back</button>
         </Link>
       </div>
       <div className="container">
@@ -62,7 +61,7 @@ export default function AddCatalogPage() {
               value={description}
             />
 
-            <button type="submit" className="button">
+            <button type="submit" className="button btn">
               Add
             </button>
           </form>

@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import "../styles/AllCatalogsPage.css";
 import Title from "../components/Title";
 
 export default function AllCatalogsPage() {
@@ -27,7 +26,7 @@ export default function AllCatalogsPage() {
       <Title text="All Collections are displayed here "></Title>
       <div className="add-button">
         <Link to={`/allcatalogs/add-catalog`}>
-          <button>+ Add Catalog</button>
+          <button className="btn">+ Add Catalog</button>
         </Link>
       </div>
 
@@ -38,7 +37,7 @@ export default function AllCatalogsPage() {
               <h3>Catalog title: {catalog.title}</h3>
               <p>Catalog description {catalog.description}</p>
               <Link to={`/allcatalogs/${catalog._id}`}>
-                <button>Check Items in this catalog</button>
+                <button className="btn">Check Items in this catalog</button>
               </Link>
             </div>
           );

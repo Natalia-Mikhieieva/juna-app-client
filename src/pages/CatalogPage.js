@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
-import "../styles/CatalogPage.css";
 import Title from "../components/Title";
 import FilterItems from "./FilterItems";
 
@@ -42,10 +41,10 @@ export default function CatalogPage() {
       <FilterItems filterItems={filterItems}></FilterItems>
       <div className="add-button">
         <Link to={`/item/add-item`}>
-          <button>+ Add Item to this catalog </button>
+          <button className="btn">+ Add Item to this catalog </button>
         </Link>
         <Link to={`/allcatalogs`}>
-          <button>Back to all catalogs</button>
+          <button className="btn">Back to all catalogs</button>
         </Link>
       </div>
       <p>You are in the catalog: {title}</p>
@@ -60,7 +59,7 @@ export default function CatalogPage() {
               <p>Item category: {item.category}</p>
               <p>Item price: {item.price}</p>
               <Link to={`/item/${item._id}`}>
-                <button>Check this item</button>
+                <button className="btn">Check this item</button>
               </Link>
             </div>
           );

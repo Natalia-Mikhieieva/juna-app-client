@@ -39,18 +39,7 @@ function Navbar() {
             </NavLink>
           </li>
 
-          <li>
-            <NavLink
-              to="/cart"
-              className={({ isActive }) => (isActive ? "selected" : "")}
-            >
-              <img
-                src="https://cdn-icons-png.flaticon.com/512/60/60992.png"
-                alt="cart-icon"
-                className="cart-logo"
-              />
-            </NavLink>
-          </li>
+      
 
           <li>
             <NavLink
@@ -67,6 +56,18 @@ function Navbar() {
               className={({ isActive }) => (isActive ? "selected" : "")}
             >
               Login
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/cart"
+              className={({ isActive }) => (isActive ? "selected" : "")}
+            >
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/60/60992.png"
+                alt="cart-icon"
+                className="cart-logo"
+              />
             </NavLink>
           </li>
         </ul>

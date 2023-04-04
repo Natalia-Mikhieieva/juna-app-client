@@ -13,10 +13,10 @@ function FilterItems(props){
     return(
         <>
         <div value={searchedStr} onChange={handleSelect}>
-            <button value="All">All</button>
-            <button value="Sofa">Sofas</button>
-            <button value="Bed">Beds</button>
-            <button value="Table">Tables</button>
+            <button value="All" className="btn">All</button>
+            <button value="Sofa" className="btn">Sofas</button>
+            <button value="Bed" className="btn">Beds</button>
+            <button value="Table" className="btn">Tables</button>
             </div>
         </>
     )

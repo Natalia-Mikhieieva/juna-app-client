@@ -2,7 +2,6 @@ import { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import "../styles/LoginPage.css";
 
 const API_URL = "http://localhost:5005";
 
@@ -58,7 +57,7 @@ export default function LoginPage(props) {
             onChange={handlePassword}
           />
 
-          <button type="submit">Login</button>
+          <button type="submit" className="btn">Login</button>
         </form>
         {errorMessage && <p className="error-message">{errorMessage}</p>}
 

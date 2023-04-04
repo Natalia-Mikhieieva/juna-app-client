@@ -2,7 +2,6 @@ import { useState } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import "../styles/AddItemPage.css";
 import Title from "../components/Title";
 import { Link } from "react-router-dom";
 
@@ -105,7 +104,7 @@ export default function AddItemPage() {
               value={image}
             />
 
-            <button type="submit" className="button">
+            <button type="submit" className="button btn">
               Add
             </button>
           </form>

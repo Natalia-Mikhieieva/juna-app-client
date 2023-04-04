@@ -3,7 +3,6 @@ import { useState } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import "../styles/EditItemPage.css";
 import Title from "../components/Title";
 import { Link } from "react-router-dom";
 
@@ -63,7 +62,7 @@ export default function EditItemPage() {
       <Title text="Add new Item here" />
       <div class="add-button">
         <Link to={`/catalog`}>
-          <button>Back to the Collection</button>
+          <button className="btn">Back to the Collection</button>
         </Link>
       </div>
       <div className="container">
@@ -113,7 +112,7 @@ export default function EditItemPage() {
               value={image}
             />
 
-            <button type="submit" className="button">
+            <button type="submit" className="button btn" >
               Add
             </button>
           </form>

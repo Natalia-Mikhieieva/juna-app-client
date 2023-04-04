@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Navbar from "../components/Navbar";
-import "../styles/SignupPage.css";
 
 const API_URL = "http://localhost:5005";
 
@@ -64,7 +63,7 @@ export default function SignupPage(props) {
           <label>Name:</label>
           <input type="text" name="name" value={name} onChange={handleName} />
 
-          <button type="submit">Sign Up</button>
+          <button type="submit" className="btn">Sign Up</button>
         </form>
 
         {errorMessage && <p className="error-message">{errorMessage}</p>}
