@@ -34,7 +34,7 @@ export default function EditItemPage() {
     };
 
     axios
-      .get(`${API_URL}/api/item/${itemId}`)
+      .get(`${API_URL}/api/item/${itemId}`, body)
       .then((response) => {
         // Reset the state
         setTitle("");

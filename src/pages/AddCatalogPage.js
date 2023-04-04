@@ -1,9 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Title from "../components/Title";
-import { Link } from "react-router-dom";
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
 
@@ -39,7 +38,7 @@ export default function AddCatalogPage() {
     <>
       <Navbar />
       <Title text="Add new Item here" />
-      <div class="add-button">
+      <div className="add-button">
         <Link to={`/allcatalogs`}>
           <button className="btn">Back</button>
         </Link>
@@ -54,7 +53,7 @@ export default function AddCatalogPage() {
               onChange={(e) => setTitle(e.target.value)}
               value={title}
             />
-<br />
+            <br />
             <label>Description</label>
             <input
               type="text"
@@ -62,7 +61,7 @@ export default function AddCatalogPage() {
               onChange={(e) => setDescription(e.target.value)}
               value={description}
             />
-<br />
+            <br />
             <button type="submit" className="button btn">
               Add
             </button>

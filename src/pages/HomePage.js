@@ -1,10 +1,10 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-
-const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
 import Footer from "../components/Footer";
 import FilterItems from "./FilterItems";
 import { useState } from "react";
+
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
 
 function HomePage() {
   const [items, setItems] = useState([]);
@@ -25,7 +25,7 @@ function HomePage() {
         </div>
         <FilterItems filterItems={filterItems}></FilterItems>
       </div>
-    <Footer>  </Footer>
+      <Footer> </Footer>
     </>
   );
 }
