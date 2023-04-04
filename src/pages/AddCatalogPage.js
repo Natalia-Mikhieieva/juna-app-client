@@ -54,7 +54,7 @@ export default function AddCatalogPage() {
               onChange={(e) => setTitle(e.target.value)}
               value={title}
             />
-
+<br />
             <label>Description</label>
             <input
               type="text"
@@ -62,7 +62,7 @@ export default function AddCatalogPage() {
               onChange={(e) => setDescription(e.target.value)}
               value={description}
             />
-
+<br />
             <button type="submit" className="button btn">
               Add
             </button>

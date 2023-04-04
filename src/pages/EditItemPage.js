@@ -101,7 +101,7 @@ export default function EditItemPage() {
             />
             <label>Image</label>
             <input
-              type="text"
+              type="file"
               name="image"
               onChange={(e) => setImage(e.target.value)}
               value={image}

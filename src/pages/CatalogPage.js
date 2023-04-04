@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import Title from "../components/Title";
-import FilterItems from "./FilterItems";
+
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
 
@@ -28,19 +29,12 @@ export default function CatalogPage() {
     getAllItems();
   }, []);
 
-  function filterItems(str) {
-    let filterItems = items.filter((furniture) => {
-      return furniture.category === str;
-      // comparing category for displaying data
-    });
-    setItems(filterItems);
-  }
+  
 
   return (
     <>
       <Navbar></Navbar>
       <Title text="Collection. Items are displayed here "></Title>
-      <FilterItems filterItems={filterItems}></FilterItems>
       <div className="add-button">
         <Link to={`/item/add-item`}>
           <button className="btn">+ Add Item to this catalog </button>
@@ -66,6 +60,7 @@ export default function CatalogPage() {
             </div>
           );
         })}
+        <Footer></Footer>
       </div>
     </>
   );
