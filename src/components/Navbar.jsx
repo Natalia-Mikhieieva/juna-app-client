@@ -8,7 +8,7 @@ function Navbar() {
     <nav className="navigation">
       <div className="brand">
         <a href="/" className="brand-name">
-          JUNA
+          
         </a>
         <NavLink to="/">
           <img
@@ -21,53 +21,67 @@ function Navbar() {
 
       <div className="navigation-menu">
         <ul className="navbar-list">
-          <li>
+          <li className="nav-text">
             <NavLink
               to="/"
               className={({ isActive }) => (isActive ? "selected" : "")}
             >
-              Home
+              <div className="dropdown">
+             <button className="btn "> Home</button>
+             </div>
             </NavLink>
           </li>
 
-          <li>
+          <li className="nav-text">
             <NavLink
               to="/allcatalogs"
               className={({ isActive }) => (isActive ? "selected" : "")}
             >
-              All Collections
+              <div className="dropdown">
+             <button className="btn dropbtn">All Collections </button> 
+             <div className="dropdown-content">
+                <a href="#">All</a>
+                <a href="#">Sofas</a>
+                <a href="#">Tables</a>
+                <a href="#">Beds</a>
+             </div></div>
             </NavLink>
           </li>
 
       
 
-          <li>
+          <li className="nav-text">
             <NavLink
               to="/signup"
               className={({ isActive }) => (isActive ? "selected" : "")}
             >
-              Signup
+              <div className="dropdown">
+               <button className="btn ">Signup</button>
+               </div>
             </NavLink>
           </li>
 
-          <li>
+          <li className="nav-text">
             <NavLink
               to="/login"
               className={({ isActive }) => (isActive ? "selected" : "")}
             >
-              Login
+              <div className="dropdown">
+               <button className="btn ">Login</button>
+               </div>
             </NavLink>
           </li>
-          <li>
+          <li className="nav-text">
             <NavLink
               to="/cart"
               className={({ isActive }) => (isActive ? "selected" : "")}
             >
+               <button className="btn ">
               <img
                 src="https://cdn-icons-png.flaticon.com/512/60/60992.png"
                 alt="cart-icon"
                 className="cart-logo"
-              />
+              /></button>
             </NavLink>
           </li>
         </ul>

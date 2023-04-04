@@ -53,9 +53,7 @@ export default function AddItemPage() {
       <Navbar />
       <Title text="Add new Item here" />
       <div className="add-button">
-        {/* <Link to={`/catalog`}>
-          <button>Back to the Collection</button>
-        </Link> */}
+        
       </div>
       <div className="container">
         <div className="AddItem">
@@ -67,7 +65,7 @@ export default function AddItemPage() {
               onChange={(e) => setTitle(e.target.value)}
               value={title}
             />
-
+<br />
             <label>Brand</label>
             <input
               type="text"
@@ -75,6 +73,7 @@ export default function AddItemPage() {
               onChange={(e) => setBrand(e.target.value)}
               value={brand}
             />
+            <br />
             <label>Description</label>
             <input
               type="text"
@@ -82,6 +81,7 @@ export default function AddItemPage() {
               onChange={(e) => setDescription(e.target.value)}
               value={description}
             />
+            <br />
             <label>Price</label>
             <input
               type="number"
@@ -89,6 +89,7 @@ export default function AddItemPage() {
               onChange={(e) => setPrice(e.target.value)}
               value={price}
             />
+            <br />
             <label>Stock</label>
             <input
               type="number"
@@ -96,14 +97,15 @@ export default function AddItemPage() {
               onChange={(e) => setStock(e.target.value)}
               value={stock}
             />
-            <label>Image</label>
+            <br />
+            <label>Upload an Image</label>
             <input
-              type="text"
+              type="file"
               name="image"
               onChange={(e) => setImage(e.target.value)}
               value={image}
             />
-
+<br />
             <button type="submit" className="button btn">
               Add
             </button>

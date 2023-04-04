@@ -51,7 +51,7 @@ export default function SignupPage(props) {
             value={email}
             onChange={handleEmail}
           />
-
+<br />
           <label>Password:</label>
           <input
             type="password"
@@ -59,10 +59,10 @@ export default function SignupPage(props) {
             value={password}
             onChange={handlePassword}
           />
-
+<br />
           <label>Name:</label>
           <input type="text" name="name" value={name} onChange={handleName} />
-
+          <br />
           <button type="submit" className="btn">Sign Up</button>
         </form>
 

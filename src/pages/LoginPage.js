@@ -48,7 +48,7 @@ export default function LoginPage(props) {
             value={email}
             onChange={handleEmail}
           />
-
+<br />
           <label>Password:</label>
           <input
             type="password"
@@ -56,7 +56,7 @@ export default function LoginPage(props) {
             value={password}
             onChange={handlePassword}
           />
-
+<br />
           <button type="submit" className="btn">Login</button>
         </form>
         {errorMessage && <p className="error-message">{errorMessage}</p>}
