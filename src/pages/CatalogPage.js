@@ -5,7 +5,6 @@ import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import Title from "../components/Title";
 
-
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
 
 export default function CatalogPage() {
@@ -29,14 +28,12 @@ export default function CatalogPage() {
     getAllItems();
   }, []);
 
-  
-
   return (
     <>
       <Navbar></Navbar>
       <Title text="Collection. Items are displayed here "></Title>
       <div className="add-button">
-        <Link to={`/item/add-item`}>
+        <Link to={`/item/${catalogId}/add-item`}>
           <button className="btn">+ Add Item to this catalog </button>
         </Link>
         <Link to={`/allcatalogs`}>

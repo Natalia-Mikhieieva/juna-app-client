@@ -30,6 +30,7 @@ export default function AddItemPage() {
       description: description,
       stock: Number(stock),
       image: image,
+      catalogId,
     };
 
     axios
@@ -54,9 +55,7 @@ export default function AddItemPage() {
     <>
       <Navbar />
       <Title text="Add new Item here" />
-      <div className="add-button">
-        
-      </div>
+      <div className="add-button"></div>
       <div className="container">
         <div className="AddItem">
           <form onSubmit={handleSubmit}>
@@ -67,7 +66,7 @@ export default function AddItemPage() {
               onChange={(e) => setTitle(e.target.value)}
               value={title}
             />
-<br />
+            <br />
             <label>Brand</label>
             <input
               type="text"
@@ -107,7 +106,7 @@ export default function AddItemPage() {
               onChange={(e) => setImage(e.target.value)}
               value={image}
             />
-<br />
+            <br />
             <button type="submit" className="button btn">
               Add
             </button>

@@ -22,7 +22,7 @@ function App() {
         <Route path="/allcatalogs/add-catalog" element={<AddCatalogPage />} />
         <Route path="/item/:itemId" element={<ItemPage />} />
         <Route path="/item/:itemId/edit" element={<EditItemPage />} />
-        <Route path="/item/add-item" element={<AddItemPage />} />
+        <Route path="/item/:catalogId/add-item" element={<AddItemPage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
