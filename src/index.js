@@ -6,11 +6,14 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { AuthProviderWrapper } from "./context/auth.context"; // <== IMPORT
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Router>
-    <App />
+    <AuthProviderWrapper>
+      <App />
+    </AuthProviderWrapper>
   </Router>
 );
 

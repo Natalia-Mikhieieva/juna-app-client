@@ -49,8 +49,9 @@ export default function ItemPage() {
   return (
     <>
       <Navbar></Navbar>
+
       <Link to={`/allcatalogs/${catalogId}`}>
-        <button className="btn">Back</button>
+        <button className="btn">Back to this catalog</button>
       </Link>
 
       <p>You are in the catalog: {title}</p>
@@ -62,9 +63,11 @@ export default function ItemPage() {
         <p>Item stock: {stock}</p>
         <p>Item price: {price} </p>
         <div className="buttons">
-          <button onClick={deleteItem} className="btn">Delete this Item</button>
+          <button onClick={deleteItem} className="btn">
+            Delete this Item
+          </button>
 
-          <Link to={`/catalog/${itemId}/edit`}>
+          <Link to={`/item/${itemId}/edit`}>
             <button className="btn">Edit this Item</button>
           </Link>
         </div>

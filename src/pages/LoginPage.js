@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/auth.context";
 import Navbar from "../components/Navbar";
-
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
 
@@ -12,6 +12,8 @@ export default function LoginPage(props) {
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const navigate = useNavigate();
+
+  const { storeToken, authenticateUser } = useContext(AuthContext);
 
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
@@ -23,11 +25,13 @@ export default function LoginPage(props) {
     axios
       .post(`${API_URL}/auth/login`, requestBody)
       .then((response) => {
-        // Request to the server's endpoint `/auth/login` returns a response
-        // with the JWT string ->  response.data.authToken
         console.log("JWT token", response.data.authToken);
 
-        navigate("/"); // <== ADD
+        storeToken(response.data.authToken);
+        // Verify the token by sending a request
+        // to the server's JWT validation endpoint.
+        authenticateUser();
+        navigate("/");
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;
@@ -49,7 +53,7 @@ export default function LoginPage(props) {
             value={email}
             onChange={handleEmail}
           />
-<br />
+          <br />
           <label>Password:</label>
           <input
             type="password"
@@ -57,8 +61,10 @@ export default function LoginPage(props) {
             value={password}
             onChange={handlePassword}
           />
-<br />
-          <button type="submit" className="btn">Login</button>
+          <br />
+          <button type="submit" className="btn">
+            Login
+          </button>
         </form>
         {errorMessage && <p className="error-message">{errorMessage}</p>}
 

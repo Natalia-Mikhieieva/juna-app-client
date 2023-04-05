@@ -6,6 +6,19 @@
   padding: 0;
   font-family: "Inter";
 }
+
+.footer {
+  background-color: #e6e6e6;
+  display: inline-block;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  padding-top: 10px;
+}
 .btn,
 select {
   padding: 5px 10px;
@@ -25,9 +38,8 @@ select {
 
 .card {
   width: 400px;
-  padding: 10px;
-  margin: 0 auto;
-  margin-bottom: 20px;
+  padding: 20px;
+  margin: 20px;
   background: #cfb2d6;
   border-radius: 4px;
 }
@@ -135,5 +147,50 @@ img {
   height: 100vh;
   background-repeat: no-repeat;
   background-size: 100%;
-  display:block;
+  display: block;
+}
+
+.SignupPage,
+.LoginPage {
+  background: #f9eec3;
+  border: 1px solid grey;
+  box-shadow: 0px 2px 3px grey;
+  width: 400px;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.EditProjectPage {
+  background-color: rgb(255, 207, 86);
+}
+
+.SignupPage,
+.LoginPage {
+  background-color: #fbcb62;
+}
+
+.LoginPage {
+  background-color: #f8cd3f;
+}
+
+.EditProjectPage form,
+.AddTask form,
+.AddProject form,
+.SignupPage form,
+.LoginPage form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.AddTask button,
+.AddProject button {
+  display: block;
+}
+
+.TaskCard {
+  background-color: #dfeef9;
 }

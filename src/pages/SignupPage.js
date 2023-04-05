@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Navbar from "../components/Navbar";
+import { AuthContext } from "../context/auth.context";
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
 
@@ -28,6 +29,7 @@ export default function SignupPage(props) {
     axios
       .post(`${API_URL}/auth/signup`, requestBody)
       .then((response) => {
+        alert("Your profile has been created!");
         navigate("/login");
       })
       .catch((error) => {
@@ -51,7 +53,7 @@ export default function SignupPage(props) {
             value={email}
             onChange={handleEmail}
           />
-<br />
+          <br />
           <label>Password:</label>
           <input
             type="password"
@@ -59,11 +61,13 @@ export default function SignupPage(props) {
             value={password}
             onChange={handlePassword}
           />
-<br />
+          <br />
           <label>Name:</label>
           <input type="text" name="name" value={name} onChange={handleName} />
           <br />
-          <button type="submit" className="btn">Sign Up</button>
+          <button type="submit" className="btn">
+            Sign Up
+          </button>
         </form>
 
         {errorMessage && <p className="error-message">{errorMessage}</p>}

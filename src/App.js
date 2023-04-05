@@ -11,12 +11,14 @@ import LoginPage from "./pages/LoginPage";
 import AddCatalogPage from "./pages/AddCatalogPage";
 import ErrorPage from "./pages/ErrorPage";
 import EditItemPage from "./pages/EditItemPage";
+import MySpacePage from "./pages/MySpacePage";
 
 function App() {
   return (
     <div className="App">
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/myspace" element={<MySpacePage />} />
         <Route path="/allcatalogs/:catalogId" element={<CatalogPage />} />
         <Route path="/allcatalogs" element={<AllCatalogsPage />} />
         <Route path="/allcatalogs/add-catalog" element={<AddCatalogPage />} />

@@ -43,8 +43,6 @@ export default function AddItemPage() {
         setDescription("");
         setStock(0);
         setImage("");
-
-        // Navigate to the `/catalog` page
         alert("Item been added!");
         navigate(`/allcatalogs/${catalogId}`);
       })
