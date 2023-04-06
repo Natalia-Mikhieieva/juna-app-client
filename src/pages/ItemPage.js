@@ -41,7 +41,7 @@ export default function ItemPage() {
       .then(() => {
         // Once the delete request is resolved successfully
         // navigate back to the list of projects.
-        navigate("/projects");
+        navigate(`/allcatalogs/${catalogId}`);
       })
       .catch((err) => console.log(err));
   };
