@@ -7,14 +7,14 @@ import Title from "../components/Title";
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
 
 export default function AllCatalogsPage() {
-  const [items, setItems] = useState([]);
+  const [catalogs, setCatalogs] = useState([]);
 
   function getAllItems() {
     axios
       .get(`${API_URL}/api/allcatalogs`)
       .then((response) => {
         console.log("response.data", response.data);
-        setItems(response.data);
+        setCatalogs(response.data);
       })
       .catch((err) => console.log(err));
   }
@@ -33,7 +33,7 @@ export default function AllCatalogsPage() {
       </div>
 
       <div className="collection">
-        {items.map((catalog) => {
+        {catalogs.map((catalog) => {
           return (
             <div className="card">
               <h3>Catalog title: {catalog.title}</h3>
