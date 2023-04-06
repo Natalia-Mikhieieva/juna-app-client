@@ -15,7 +15,7 @@ function Navbar() {
     <nav className="navigation">
       <div className="brand">
         <a href="/" className="brand-name">
-          <h5>JUNA</h5>
+          <h5 className="nav-name-juna">JUNA</h5>
         </a>
         <NavLink to="/">
           <img

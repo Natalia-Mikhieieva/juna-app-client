@@ -1,5 +1,5 @@
 .navigation {
-  height: 60px;
+  height: 70px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -7,7 +7,6 @@
   position: relative;
   background-color: #fff;
   color: black;
-  box-shadow: 0 2px 2px 2px rgba(9, 9, 9, 0.23);
 }
 
 .brand-name {
@@ -32,14 +31,9 @@
 }
 .navigation-menu li {
   list-style-type: none;
-  margin: 0 1rem;
+  margin-right: 1rem;
 }
-.navigation-menu li a {
-  text-decoration: none;
 
-  width: 100%;
-  color: black;
-}
 
 .nav-logo {
   width: 25px;
@@ -47,7 +41,8 @@
 }
 
 .cart-logo {
-  width: 25px;
+  width: 20px;
+  filter: opacity(90%);
 }
 .brand {
   display: flex;
@@ -67,10 +62,10 @@
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f1f1f1;
+  background-color: #ffffff;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
+  
 }
 
 .dropdown-content a {
@@ -81,18 +76,25 @@
 }
 
 .dropdown-content a:hover {
-  background-color: #ddd;
+  background-color: #ffffff;
+  color: black;
+  text-decoration: underline 1px;
+  text-underline-offset: 8px;
+  transition: text-underline-offset 1s ease;
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
-.dropdown:hover .dropbtn {
-  text-decoration: underline 1px;
-  transition: background-color 1s ease;
-}
 .dropdown:hover .btn {
   text-decoration: underline 1px;
-  transition: 1s ease;
+  text-underline-offset: 8px ;
+  color: black;
+  transition: .5s text-decoration ease;
 }
+.nav-name-juna {
+  padding-top: 9px;
+  color:black;
+}
+

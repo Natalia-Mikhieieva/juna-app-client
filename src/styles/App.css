@@ -143,11 +143,12 @@ img {
 }
 
 .first-row {
-  background-image: url("https://www.bhf.org.uk/-/media/images/shop/buyfurniture/furniturepage1200x630.png?rev=0c1a27e3612840d882d8c1664ee692fa");
+  background-image: url("https://hips.hearstapps.com/hmg-prod/images/posters-in-cozy-apartment-interior-royalty-free-image-943910360-1534189931.jpg");
   height: 100vh;
+  width: 100%;
   background-repeat: no-repeat;
-  background-size: 100%;
-  display: block;
+  background-size: cover;
+  display:block;
 }
 
 .SignupPage,
@@ -193,4 +194,9 @@ img {
 
 .TaskCard {
   background-color: #dfeef9;
+}
+
+.btn {
+  text-decoration: underline 1px;
+  transition: 1s ease;
 }
