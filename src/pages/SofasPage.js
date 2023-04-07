@@ -40,7 +40,7 @@ export default function CatalogPage() {
           <button className="btn">Back to all catalogs</button>
         </Link>
       </div>
-      <p>You are in the catalog: {title}</p>
+      <p>You are in the catalog: SOFAS {title}</p>
       <div className="collection">
         {items.map((item) => {
           return (

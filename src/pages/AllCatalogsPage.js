@@ -9,7 +9,7 @@ const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
 export default function AllCatalogsPage() {
   const [catalogs, setCatalogs] = useState([]);
 
-  function getAllItems() {
+  function getAllCatalogs() {
     axios
       .get(`${API_URL}/api/allcatalogs`)
       .then((response) => {
@@ -19,7 +19,7 @@ export default function AllCatalogsPage() {
       .catch((err) => console.log(err));
   }
   useEffect(() => {
-    getAllItems();
+    getAllCatalogs();
   }, []);
 
   return (
@@ -35,7 +35,7 @@ export default function AllCatalogsPage() {
       <div className="collection">
         {catalogs.map((catalog) => {
           return (
-            <div className="card">
+            <div className="card" key={catalog._id}>
               <h3>Catalog title: {catalog.title}</h3>
               <p>Catalog description {catalog.description}</p>
               <Link to={`/allcatalogs/${catalog._id}`}>

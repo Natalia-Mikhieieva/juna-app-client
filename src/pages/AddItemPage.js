@@ -3,7 +3,6 @@ import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Title from "../components/Title";
-import { Link } from "react-router-dom";
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
 
@@ -14,9 +13,9 @@ export default function AddItemPage() {
   const [description, setDescription] = useState("");
   const [stock, setStock] = useState(1);
   const [image, setImage] = useState("");
+  const [category, setCategory] = useState("");
 
   const navigate = useNavigate();
-  const { itemId } = useParams();
   const { catalogId } = useParams();
 
   const handleSubmit = (e) => {
@@ -25,11 +24,12 @@ export default function AddItemPage() {
     // Create the body for the POST request
     const body = {
       title: title,
-      price: Number(price),
       brand: brand,
       description: description,
+      price: Number(price),
       stock: Number(stock),
       image: image,
+      category: category,
       catalogId,
     };
 
@@ -38,11 +38,12 @@ export default function AddItemPage() {
       .then((response) => {
         // Reset the state
         setTitle("");
-        setPrice(0);
         setBrand("");
         setDescription("");
+        setPrice(0);
         setStock(0);
         setImage("");
+        setCategory("");
         alert("Item been added!");
         navigate(`/allcatalogs/${catalogId}`);
       })
@@ -63,6 +64,14 @@ export default function AddItemPage() {
               name="title"
               onChange={(e) => setTitle(e.target.value)}
               value={title}
+            />
+            <br />
+            <label>Category</label>
+            <input
+              type="text"
+              name="category"
+              onChange={(e) => setCategory(e.target.value)}
+              value={category}
             />
             <br />
             <label>Brand</label>

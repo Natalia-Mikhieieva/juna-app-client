@@ -50,9 +50,15 @@ function Navbar() {
                 <button className="btn dropbtn">All Collections </button>
                 <div className="dropdown-content">
                   <a href="#">All</a>
-                  <a href="#">Sofas</a>
+                  <NavLink
+                    to="/allcatalogs/sofas"
+                    className={({ isActive }) => (isActive ? "selected" : "")}
+                  >
+                    Sofas
+                  </NavLink>
                   <a href="#">Tables</a>
                   <a href="#">Beds</a>
+                  <a href="#">Chairs</a>
                 </div>
               </div>
             </NavLink>
@@ -67,7 +73,10 @@ function Navbar() {
                   className={({ isActive }) => (isActive ? "selected" : "")}
                 >
                   <div className="dropdown">
-                    <button className="btn "> {user && user.name}' Account</button>
+                    <button className="btn ">
+                      {" "}
+                      {user && user.name}' Account
+                    </button>
                   </div>
                 </NavLink>
               </li>
