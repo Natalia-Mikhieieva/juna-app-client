@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import axios from "axios";
 import { Link, useParams, useNavigate } from "react-router-dom";
+import Title from "../components/Title";
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
 
@@ -43,26 +44,34 @@ export default function ItemPage() {
   return (
     <>
       <Navbar></Navbar>
-
-      <Link to={`/allcatalogs/${catalogId}`}>
-        <button className="btn">Back to this catalog</button>
-      </Link>
-
-      <p>You are in the catalog: {catalogId}</p>
-      <div className="card">
-        <img src={imageUrl} alt="item" />
-        <h3>Item title: {title}</h3>
-        <p>Item description: {description}</p>
-        <p>Item category: {category}</p>
-        <p>Item brand: {brand} </p>
-        <p>Item stock: {stock}</p>
-        <p>Item price: {price} </p>
-        <p>Item comment: {comment} </p>
-        <p>Item catalog: {catalogId} </p>
-
-        <Link to={`/item/${itemId}/edit`}>
-          <button className="btn">Edit this Item</button>
+      <Title text="Item page" />
+      <div className="button-group">
+        <Link to={`/allcatalogs/${catalogId}`}>
+          <button className="outlined-btn">
+            Back to the catalog {catalogId}
+          </button>
         </Link>
+      </div>
+      <div className="DisplayOneItemDetails">
+        {/* DISPLAY  ITEM IMAGE */}
+        <div className="DisplayItemImageColumn">
+          <img src={imageUrl} alt="one-item-img" />
+        </div>
+        {/* DISPLAY ITEM INFO */}
+        <div className="DisplayItemInfoColumn">
+          <h3>{title}</h3>
+          <p>Description: {description}</p>
+          <p>Catalog: {catalogId} </p>
+          <p>Category: {category}</p>
+          <p>Brand: {brand} </p>
+          <p>Available stock: {stock}</p>
+          <p>Price: {price} </p>
+          <p>Comment: {comment} </p>
+          <Link to={`/item/${itemId}/edit`}>
+          <button className="edit-item-btn">Edit this Item</button>
+        </Link>
+        </div>
+
       </div>
     </>
   );

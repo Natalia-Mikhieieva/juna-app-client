@@ -49,16 +49,11 @@ function Navbar() {
               <div className="dropdown">
                 <button className="btn dropbtn">All Collections </button>
                 <div className="dropdown-content">
-                  <a href="#">All</a>
-                  <NavLink
-                    to="/allcatalogs/sofas"
-                    className={({ isActive }) => (isActive ? "selected" : "")}
-                  >
-                    Sofas
-                  </NavLink>
-                  <a href="#">Tables</a>
-                  <a href="#">Beds</a>
-                  <a href="#">Chairs</a>
+                  <a href="/allcatalogs">All</a>
+                  <a href="/allcatalogs">Sofas</a>
+                  <a href="/allcatalogs">Tables</a>
+                  <a href="/allcatalogs">Beds</a>
+                  <a href="/allcatalogs">Chairs</a>
                 </div>
               </div>
             </NavLink>

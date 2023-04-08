@@ -45,9 +45,10 @@ export default function LoginPage(props) {
 
       <div className="LoginPage">
         <h4>Login here</h4>
-        <form onSubmit={handleLoginSubmit}>
+        <form onSubmit={handleLoginSubmit} className="login-box">
           <label>Email:</label>
           <input
+            required
             type="email"
             name="email"
             value={email}
@@ -56,13 +57,14 @@ export default function LoginPage(props) {
           <br />
           <label>Password:</label>
           <input
+            required
             type="password"
             name="password"
             value={password}
             onChange={handlePassword}
           />
           <br />
-          <button type="submit" className="btn">
+          <button type="submit" className="login-btn">
             Login
           </button>
         </form>

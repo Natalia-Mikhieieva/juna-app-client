@@ -1,47 +1,401 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700;900&display=swap");
 
+/* FINALIZED CODE STARTS HERE */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "Inter";
+  font-family: "Roboto", sans-serif;
 }
+.login-btn {
+  border-radius: 20px;
+  width: 270px;
+  color: rgb(255, 255, 255);
+  background-color: #adadad;
+  border: none;
+  height: 42px;
+  margin: 20px 0px 20px 0px;
+}
+.outlined-btn {
+  border-radius: 20px;
+  width: 170px;
+  color: rgb(98, 98, 98);
+  background-color: #ffffff;
+  border-color: #cac9c9;
+  border-style: solid;
+  height: 42px;
+  margin: 20px 0px 20px 0px;
+}
+
+.submit-catalog-btn {
+  border-radius: 20px;
+  width: 270px;
+  color: rgb(255, 255, 255);
+  background-color: #adadad;
+  border: none;
+  height: 42px;
+}
+
+.welcome-btn {
+  height: 45px;
+  padding: 10px 30px 10px 30px;
+  border-radius: 30px;
+  background-color: rgb(246, 248, 231);
+  color: black;
+  border: none;
+}
+
+.button-group {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  justify-content: right;
+  padding: 0 50px 50px 50px;
+  gap: 10px;
+}
+
+.container {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100%;
+}
+
+.SignupPage,
+.LoginPage {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #e7e7e7;
+  position: relative;
+  font-size: 14px;
+}
+.SignupPage,
+.LoginPage,
+h4 {
+  color: #5d635f;
+}
+
+.login-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.login-box input {
+  border-radius: 20px;
+  padding: 20px 20px 20px 20px;
+  width: 270px;
+  color: rgb(92, 92, 92);
+  background-color: #ffffff;
+  height: 32px;
+  border-style: none;
+}
+
+.first-row {
+  background-image: url("https://www.materials-inc.com/media/minimalist-interior-design.jpg");
+  height: 100vh;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  padding-right: 100px;
+  color: rgb(246, 248, 231);
+}
+.collection {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  grid-column-gap: 10px;
+}
+
+.one-catalog {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background: white;
+  box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem,
+    rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
+  position: relative;
+  border-radius: 10px;
+  color: #6a6c6b;
+  margin: 5px;
+  padding: 30px 30px 10px 30px;
+  width: 660px;
+}
+
+.one-catalog img {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: relative;
+  border-radius: 10px;
+  color: #6a6c6b;
+  width: 600px;
+}
+/* ADD CATALOG STYLE STARTS HERE */
+.AddCatalogPage {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background: #e7e7e7;
+  position: relative;
+  font-size: 14px;
+}
+
+.AddCatalogForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-left: 100px;
+  margin-top: 30px;
+}
+.AddCatalogForm input {
+  border-radius: 20px;
+  padding: 20px 20px 20px 20px;
+  width: 470px;
+  color: rgb(92, 92, 92);
+  background-color: #ffffff;
+  height: 32px;
+  border-style: none;
+}
+.AddCatalogForm input[type="file"] {
+  height: 60px;
+  background-color: #e7e7e7;
+}
+
+.AddCatalogForm textarea {
+  border-radius: 20px;
+  padding: 20px 20px 20px 20px;
+  width: 470px;
+  height: 150px;
+  color: rgb(92, 92, 92);
+  background-color: #ffffff;
+  border-style: none;
+}
+/* ADD CATALOG STYLE ENDS HERE */
+
+/* DISPLAY CATALOG STYLE STARTS HERE */
+.ItemsCollection {
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
+  grid-column-gap: 10px;
+}
+
+.one-item-preview {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background: white;
+  box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem,
+    rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
+  position: relative;
+  border-radius: 10px;
+  color: #6a6c6b;
+  margin: 5px;
+  padding: 30px 30px 10px 30px;
+  width: 660px;
+}
+
+.one-item-preview img {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: relative;
+  border-radius: 10px;
+  color: #6a6c6b;
+  width: 600px;
+}
+/* DISPLAY CATALOG STYLE ENDS HERE */
+
+/* ADD ITEM STYLE STARTS HERE */
+.AddItemPage {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background: #e7e7e7;
+  position: relative;
+  font-size: 14px;
+}
+
+.AddItemForm {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  grid-column-gap: 10px;
+  margin-left: 100px;
+  margin-top: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.AddItemImageColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  border-color: #6a6c6b;
+}
+
+.AddItemInfoColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.submit-item-btn {
+  margin: 20px;
+  border-radius: 20px;
+  width: 270px;
+  color: rgb(255, 255, 255);
+  background-color: #adadad;
+  border: none;
+  height: 42px;
+}
+
+.AddItemForm input {
+  border-radius: 20px;
+  padding: 20px 20px 20px 20px;
+  width: 470px;
+  color: rgb(92, 92, 92);
+  background-color: #ffffff;
+  height: 32px;
+  border-style: none;
+}
+.AddItemForm input[type="file"] {
+  height: 60px;
+  background-color: #e7e7e7;
+}
+
+.AddItemForm textarea {
+  border-radius: 20px;
+  padding: 20px 20px 20px 20px;
+  width: 470px;
+  height: 150px;
+  color: rgb(92, 92, 92);
+  background-color: #ffffff;
+  border-style: none;
+}
+/* ADD ITEM STYLE ENDS HERE */
+
+/* DISPLAY  ITEM STYLE STARTS HERE */
+
+.DisplayOneItemDetails {
+  display: flex;
+  width: 100%;
+  margin-left: 100px;
+  justify-content: start;
+  align-items: start;
+  gap: 20px;
+}
+
+.DisplayItemImageColumn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.DisplayItemImageColumn img {
+  width: 600px;
+}
+
+.DisplayItemInfoColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.edit-item-btn {
+  margin: 20px 0 0 0;
+  border-radius: 20px;
+  width: 270px;
+  color: rgb(255, 255, 255);
+  background-color: #adadad;
+  border: none;
+  height: 42px;
+}
+
+.AddItemForm input {
+  border-radius: 20px;
+  padding: 20px 20px 20px 20px;
+  width: 470px;
+  color: rgb(92, 92, 92);
+  background-color: #ffffff;
+  height: 32px;
+  border-style: none;
+}
+.AddItemForm input[type="file"] {
+  height: 60px;
+  background-color: #e7e7e7;
+}
+
+.AddItemForm textarea {
+  border-radius: 20px;
+  padding: 20px 20px 20px 20px;
+  width: 470px;
+  height: 150px;
+  color: rgb(92, 92, 92);
+  background-color: #ffffff;
+  border-style: none;
+}
+
+.edit-button-group {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 10px;
+}
+
+/* DISPLAY ITEM STYLE ENDS HERE */
+
+.cart-page {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-left: 100px;
+  color: rgb(0, 0, 0);
+}
+
+/* FINALIZED CODE ENDS HERE */
 
 .footer {
   background-color: #e6e6e6;
   display: inline-block;
   margin: 10px;
-  display: flex;
   align-items: center;
   width: 100%;
   height: 50px;
-  align-items: center;
   justify-content: center;
   padding-top: 10px;
-}
-.btn,
-select {
-  padding: 5px 10px;
-  min-width: 50px;
-  margin: 10px;
-  font-size: 18px;
-}
-.btn:hover {
-  background-color: #3e8e41;
 }
 
 .list {
   margin: 0 auto;
   width: 100%;
   text-align: center;
-}
-
-.card {
-  width: 400px;
-  padding: 20px;
-  margin: 20px;
-  background: #cfb2d6;
-  border-radius: 4px;
 }
 
 .logo,
@@ -76,33 +430,6 @@ img {
   text-align: center;
 }
 
-.AddCatalog button[type="submit"] {
-  display: block;
-  margin: 0 auto;
-  margin-top: 20px;
-  border-radius: 3px;
-}
-
-.add-button {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 80px;
-  align-items: center;
-  justify-content: right;
-  padding: 0 50px 0 0;
-}
-
-.collection {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-size: 100%;
-  height: 100vh;
-}
-
 .EditItem {
   width: 400px;
   text-align: center;
@@ -130,73 +457,18 @@ img {
   text-align: center;
 }
 
-.EditItem button[type="submit"] {
-  display: block;
-  margin: 0 auto;
-  margin-top: 20px;
-  border-radius: 3px;
-}
-
-.container {
-  margin: 0;
-  padding: 0;
-}
-
-.first-row {
-  background-image: url("https://hips.hearstapps.com/hmg-prod/images/posters-in-cozy-apartment-interior-royalty-free-image-943910360-1534189931.jpg");
-  height: 100vh;
-  width: 100%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  display:block;
-}
-
-.SignupPage,
-.LoginPage {
-  background: #f9eec3;
-  border: 1px solid grey;
-  box-shadow: 0px 2px 3px grey;
-  width: 400px;
-  text-align: center;
-  margin: 0 auto;
-  margin-bottom: 20px;
-  padding: 10px;
-  border-radius: 4px;
-}
-
-.EditProjectPage {
-  background-color: rgb(255, 207, 86);
-}
-
-.SignupPage,
-.LoginPage {
-  background-color: #fbcb62;
-}
-
-.LoginPage {
-  background-color: #f8cd3f;
-}
-
-.EditProjectPage form,
-.AddTask form,
-.AddProject form,
-.SignupPage form,
-.LoginPage form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.AddTask button,
-.AddProject button {
-  display: block;
-}
-
-.TaskCard {
-  background-color: #dfeef9;
+.btn:hover {
+  background-color: #8a8a8a;
 }
 
 .btn {
   text-decoration: underline 1px;
   transition: 1s ease;
+}
+
+.EditItem button[type="submit"] {
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+  border-radius: 3px;
 }

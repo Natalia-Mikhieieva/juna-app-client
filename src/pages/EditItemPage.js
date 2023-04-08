@@ -3,6 +3,7 @@ import axios from "axios";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Title from "../components/Title";
+import service from "../api/service";
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
 
@@ -12,10 +13,24 @@ export default function EditItemPage(props) {
   const [brand, setBrand] = useState("");
   const [description, setDescription] = useState("");
   const [stock, setStock] = useState(1);
-  const [image, setImage] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
+  const [category, setCategory] = useState("");
+  const [catalogId, setCatalogId] = useState("");
+
   const { itemId } = useParams();
-  const { catalogId } = useParams();
+
   const navigate = useNavigate();
+
+  const handleFileUpload = (e) => {
+    const uploadData = new FormData();
+    uploadData.append("imageUrl", e.target.files[0]);
+    service
+      .uploadImage(uploadData)
+      .then((response) => {
+        setImageUrl(response.fileUrl);
+      })
+      .catch((err) => console.log("Error while uploading the file: ", err));
+  };
 
   useEffect(() => {
     axios
@@ -25,7 +40,7 @@ export default function EditItemPage(props) {
         setTitle(oneItem.title);
         setDescription(oneItem.description);
         setBrand(oneItem.brand);
-        setImage(oneItem.imageUrl);
+        setImageUrl(oneItem.imageUrl);
         setPrice(oneItem.price);
       })
       .catch((error) => console.log(error));
@@ -33,9 +48,18 @@ export default function EditItemPage(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const requestBody = { title, description, brand, image, price };
+    const body = {
+      title: title,
+      brand: brand,
+      description: description,
+      price: Number(price),
+      stock: Number(stock),
+      imageUrl: imageUrl,
+      category: category,
+      catalogId,
+    };
     axios
-      .put(`${API_URL}/api/item/${itemId}`, requestBody)
+      .put(`${API_URL}/api/item/${itemId}`, body)
       .then(() => {
         alert("Item has been updated!");
         navigate(`/allcatalogs/${catalogId}`);
@@ -47,6 +71,7 @@ export default function EditItemPage(props) {
     axios
       .delete(`${API_URL}/api/item/${itemId}`)
       .then(() => {
+        alert("Item has been deleted!");
         navigate(`/allcatalogs/${catalogId}`);
       })
       .catch((err) => console.log(err));
@@ -56,60 +81,70 @@ export default function EditItemPage(props) {
     <>
       <Navbar />
       <Title text="Add new Item here" />
-      <Link to={`/allcatalogs/${catalogId}`}>
-        <button className="btn">Back to the Collection</button>
-      </Link>
+      <div className="button-group">
+        <Link to={`/allcatalogs/${catalogId}`}>
+          <button className="outlined-btn">Back to the Collection</button>
+        </Link>
+        <Link to={`/allcatalogs`}>
+          <button className="outlined-btn">Back to all Catalogs</button>
+        </Link>
+      </div>
 
-      <div className="EditItemPage">
-        <h3>Edit Item </h3>
+      <div className="AddItemPage">
+        <form onSubmit={handleSubmit} className="AddItemForm">
+          {/* EDIT ITEM IMAGE */}
+          <div className="AddItemImageColumn">
+            <label>Upload a new Image</label>
+            <input type="file" onChange={(e) => handleFileUpload(e)} />
+          </div>
+          {/* ADD ITEM INFO */}
+          <div className="AddItemInfoColumn">
+            <label>Title</label>
+            <input
+              type="text"
+              name="title"
+              onChange={(e) => setTitle(e.target.value)}
+              value={title}
+            />
 
-        <form onSubmit={handleSubmit}>
-          <label>Title</label>
-          <input
-            type="text"
-            name="title"
-            onChange={(e) => setTitle(e.target.value)}
-            value={title}
-          />
-
-          <label>Brand</label>
-          <input
-            type="text"
-            name="brand"
-            onChange={(e) => setBrand(e.target.value)}
-            value={brand}
-          />
-          <label>Description</label>
-          <input
-            type="text"
-            name="description"
-            onChange={(e) => setDescription(e.target.value)}
-            value={description}
-          />
-          <label>Price</label>
-          <input
-            type="number"
-            name="price"
-            onChange={(e) => setPrice(e.target.value)}
-            value={price}
-          />
-          <label>Stock</label>
-          <input
-            type="number"
-            name="stock"
-            onChange={(e) => setStock(e.target.value)}
-            value={stock}
-          />
-          <label>Image</label>
-          <input
-            type="file"
-            name="image"
-            onChange={(e) => setImage(e.target.value)}
-            value={image}
-          />
-          <input type="submit" value="Submit" />
+            <label>Brand</label>
+            <input
+              type="text"
+              name="brand"
+              onChange={(e) => setBrand(e.target.value)}
+              value={brand}
+            />
+            <label>Description</label>
+            <input
+              type="text"
+              name="description"
+              onChange={(e) => setDescription(e.target.value)}
+              value={description}
+            />
+            <label>Price</label>
+            <input
+              type="number"
+              name="price"
+              onChange={(e) => setPrice(e.target.value)}
+              value={price}
+            />
+            <label>Stock</label>
+            <input
+              type="number"
+              name="stock"
+              onChange={(e) => setStock(e.target.value)}
+              value={stock}
+            />
+            <div className="edit-button-group">
+              <button type="submit" className="submit-item-btn">
+                Update item
+              </button>
+              <button onClick={deleteItem} className="submit-item-btn">
+                Delete Item
+              </button>
+            </div>
+          </div>
         </form>
-        <button onClick={deleteItem}>Delete Item</button>
       </div>
     </>
   );

@@ -1,13 +1,19 @@
 import axios from "axios";
 
 const api = axios.create({
-  // make sure you use PORT = 5005 (the port where our server is running)
   baseURL: "http://localhost:5005/api",
   // withCredentials: true // => you might need this option if using cookies and sessions
 });
 
 const errorHandler = (err) => {
   throw err;
+};
+
+const getCatalogs = () => {
+  return api
+    .get("/allcatalogs")
+    .then((res) => res.data)
+    .catch(errorHandler);
 };
 
 const getItems = () => {
@@ -24,6 +30,12 @@ const uploadImage = (file) => {
     .catch(errorHandler);
 };
 
+const createCatalog = (newCatalog) => {
+  return api
+    .post("/allcatalogs", newCatalog)
+    .then((res) => res.data)
+    .catch(errorHandler);
+};
 const createItem = (newItem) => {
   return api
     .post("/items", newItem)
@@ -33,6 +45,8 @@ const createItem = (newItem) => {
 
 export default {
   getItems,
+  getCatalogs,
   uploadImage,
+  createCatalog,
   createItem,
 };

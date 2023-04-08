@@ -45,9 +45,10 @@ export default function SignupPage(props) {
       <div className="SignupPage">
         <h4>Sign Up</h4>
 
-        <form onSubmit={handleSignupSubmit}>
+        <form onSubmit={handleSignupSubmit} className="login-box">
           <label>Email:</label>
           <input
+            required
             type="email"
             name="email"
             value={email}
@@ -56,6 +57,7 @@ export default function SignupPage(props) {
           <br />
           <label>Password:</label>
           <input
+            required
             type="password"
             name="password"
             value={password}
@@ -63,9 +65,15 @@ export default function SignupPage(props) {
           />
           <br />
           <label>Name:</label>
-          <input type="text" name="name" value={name} onChange={handleName} />
+          <input
+            required
+            type="text"
+            name="name"
+            value={name}
+            onChange={handleName}
+          />
           <br />
-          <button type="submit" className="btn">
+          <button type="submit" className="login-btn">
             Sign Up
           </button>
         </form>
