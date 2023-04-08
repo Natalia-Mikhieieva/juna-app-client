@@ -28,8 +28,8 @@ function HomePage() {
             <button className="welcome-btn">Shop best sellers</button>
           </Link>
         </div>
-        <FilterItems filterItems={filterItems}></FilterItems>
       </div>
+      <FilterItems filterItems={filterItems}></FilterItems>
       <Footer> </Footer>
     </>
   );
