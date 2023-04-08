@@ -24,7 +24,7 @@ function HomePage() {
           <h5>The best way to buy beautiful modern furniture.</h5>
 
           <Link to="/allcatalogs">
-            <button className="welcome-btn">Check our collections</button>
+            <button className="welcome-btn">Shop best sellers</button>
           </Link>
           <Link to="/wholecatalog">
             <button className="welcome-btn"> See our full catalog</button>
