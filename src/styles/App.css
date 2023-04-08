@@ -191,7 +191,7 @@ h4 {
 .ItemsCollection {
   display: grid;
   grid-template-columns: repeat(4, 25%);
-  grid-column-gap: 10px;
+  grid-column-gap: 5px;
 }
 
 .one-item-preview {
@@ -244,7 +244,7 @@ h4 {
 
 /* ADD ITEM STYLE STARTS HERE */
 .AddItemPage {
-  height: 100vh;
+  margin-top: 10px;
   width: 100%;
   display: flex;
   flex-direction: column;
