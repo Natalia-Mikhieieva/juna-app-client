@@ -49,7 +49,7 @@ function Navbar() {
               <div className="dropdown">
                 <button className="btn dropbtn">All Collections </button>
                 <div className="dropdown-content">
-                  <a href="/allcatalogs">All</a>
+                  <a href="/wholecatalog">All</a>
                   <a href="/allcatalogs">Sofas</a>
                   <a href="/allcatalogs">Tables</a>
                   <a href="/allcatalogs">Beds</a>

@@ -477,9 +477,9 @@ img {
   text-align: center;
 }
 
-.btn:hover {
+/* .btn:hover {
   background-color: #8a8a8a;
-}
+} */
 
 .btn {
   text-decoration: underline 1px;

@@ -12,6 +12,7 @@ import AddCatalogPage from "./pages/AddCatalogPage";
 import ErrorPage from "./pages/ErrorPage";
 import EditItemPage from "./pages/EditItemPage";
 import MySpacePage from "./pages/MySpacePage";
+import WholeCatalog from "./pages/WholeCatalog";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/allcatalogs/:catalogId" element={<CatalogPage />} />
         <Route path="/allcatalogs" element={<AllCatalogsPage />} />
         <Route path="/allcatalogs/add-catalog" element={<AddCatalogPage />} />
+        <Route path="/wholecatalog" element={<WholeCatalog />}/>
         <Route path="/item/:catalogId/:itemId" element={<ItemPage />} />
         <Route
           path="/item/:catalogId/:itemId/edit"
