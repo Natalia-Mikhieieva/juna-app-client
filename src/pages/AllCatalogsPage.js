@@ -14,7 +14,6 @@ function AllCatalogsPage() {
     axios
       .get(`${API_URL}/api/allcatalogs`)
       .then((response) => {
-        console.log("response.data", response.data);
         setCatalogs(response.data);
       })
       .catch((err) => console.log(err));

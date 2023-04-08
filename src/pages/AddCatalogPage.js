@@ -57,7 +57,7 @@ export default function AddCatalogPage() {
         alert("Catalog has been added!");
         navigate("/allcatalogs");
       })
-      .catch((err) => console.log("Error while adding the new movie: ", err));
+      .catch((err) => console.log("Error while adding the new catalog: ", err));
   };
 
   return (
