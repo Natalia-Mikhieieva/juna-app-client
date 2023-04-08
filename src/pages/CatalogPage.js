@@ -37,17 +37,20 @@ function CatalogPage() {
           <button className="outlined-btn">Back to all catalogs</button>
         </Link>
       </div>
-      <h5>Collection of {title}</h5>
+      <h5>{title} Collection </h5>
       <div className="ItemsCollection">
         {items &&
           items.map((item) => (
             <div key={item._id} className="one-item-preview">
               <img src={item.imageUrl} alt="one-item-img-preview" />
-              <h3> {item.title}</h3>
-              <p>Brand: {item.brand}</p>
-              <p>Price: {item.price}</p>
+              <div className="one-item-preview-details">
+                <h5> {item.title}</h5>
+                <p>Brand: {item.brand}</p>
+                <p>Price: {item.price}</p>
+              </div>
+
               <Link to={`/item/${catalogId}/${item._id}`}>
-                <button className="outlined-btn">Check this item</button>
+                <button className="item-outlined-btn">Item details</button>
               </Link>
             </div>
           ))}

@@ -47,9 +47,7 @@ export default function ItemPage() {
       <Title text="Item page" />
       <div className="button-group">
         <Link to={`/allcatalogs/${catalogId}`}>
-          <button className="outlined-btn">
-            Back to the catalog {catalogId}
-          </button>
+          <button className="outlined-btn">Back to the catalog</button>
         </Link>
       </div>
       <div className="DisplayOneItemDetails">
@@ -61,7 +59,6 @@ export default function ItemPage() {
         <div className="DisplayItemInfoColumn">
           <h3>{title}</h3>
           <p>Description: {description}</p>
-          <p>Catalog: {catalogId} </p>
           <p>Category: {category}</p>
           <p>Brand: {brand} </p>
           <p>Available stock: {stock}</p>
