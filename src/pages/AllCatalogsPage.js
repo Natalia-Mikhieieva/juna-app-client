@@ -11,6 +11,13 @@ function AllCatalogsPage() {
   const [catalogs, setCatalogs] = useState([]);
 
   useEffect(() => {
+    axios
+      .get(`${API_URL}/api/allcatalogs`)
+      .then((response) => {
+        console.log("response.data", response.data);
+        setCatalogs(response.data);
+      })
+      .catch((err) => console.log(err));
     service
       .getCatalogs()
       .then((data) => {
@@ -18,14 +25,6 @@ function AllCatalogsPage() {
       })
       .catch((err) => console.log(err));
   }, []);
-
-  axios
-    .get(`${API_URL}/api/allcatalogs`)
-    .then((response) => {
-      console.log("response.data", response.data);
-      setCatalogs(response.data);
-    })
-    .catch((err) => console.log(err));
 
   return (
     <>

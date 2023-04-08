@@ -15,9 +15,8 @@ export default function EditItemPage(props) {
   const [stock, setStock] = useState(1);
   const [imageUrl, setImageUrl] = useState("");
   const [category, setCategory] = useState("");
-  const [catalogId, setCatalogId] = useState("");
 
-  const { itemId } = useParams();
+  const { itemId, catalogId } = useParams();
 
   const navigate = useNavigate();
 

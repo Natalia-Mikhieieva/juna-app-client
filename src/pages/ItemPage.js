@@ -67,11 +67,10 @@ export default function ItemPage() {
           <p>Available stock: {stock}</p>
           <p>Price: {price} </p>
           <p>Comment: {comment} </p>
-          <Link to={`/item/${itemId}/edit`}>
-          <button className="edit-item-btn">Edit this Item</button>
-        </Link>
+          <Link to={`/item/${catalogId}/${itemId}/edit`}>
+            <button className="edit-item-btn">Edit this Item</button>
+          </Link>
         </div>
-
       </div>
     </>
   );

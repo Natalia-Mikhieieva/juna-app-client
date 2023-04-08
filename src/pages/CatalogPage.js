@@ -15,24 +15,14 @@ function CatalogPage() {
   const { catalogId } = useParams();
 
   useEffect(() => {
-    service
-      .getItems()
-      .then((data) => {
-        setItems(data);
+    axios
+      .get(`${API_URL}/api/allcatalogs/${catalogId}`)
+      .then((response) => {
+        console.log("response.data", response.data);
+        setItems(response.data.items);
       })
       .catch((err) => console.log(err));
   }, []);
-
-  axios
-    .get(`${API_URL}/api/allcatalogs/${catalogId}`)
-    .then((response) => {
-      console.log("response.data", response.data);
-      setItems(response.data.items);
-      setDescription(response.data.description);
-      setTitle(response.data.title);
-      setImageUrl(response.data.imageUrl);
-    })
-    .catch((err) => console.log(err));
 
   return (
     <>
@@ -56,7 +46,7 @@ function CatalogPage() {
               <h3> {item.title}</h3>
               <p>Brand: {item.brand}</p>
               <p>Price: {item.price}</p>
-              <Link to={`/item/${item._id}`}>
+              <Link to={`/item/${catalogId}/${item._id}`}>
                 <button className="outlined-btn">Check this item</button>
               </Link>
             </div>

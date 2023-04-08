@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Title from "../components/Title";
 import service from "../api/service";
@@ -15,7 +15,7 @@ export default function AddItemPage() {
   const [stock, setStock] = useState(1);
   const [imageUrl, setImageUrl] = useState("");
   const [category, setCategory] = useState("");
-  const [catalogId, setCatalogId] = useState("");
+  const { catalogId } = useParams();
 
   const navigate = useNavigate();
 
@@ -29,38 +29,6 @@ export default function AddItemPage() {
       })
       .catch((err) => console.log("Error while uploading the file: ", err));
   };
-
-  /*  const handleSubmit = (e) => {
-    // Prevent page reload on submit
-    e.preventDefault();
-    // Create the body for the POST request
-    const body = {
-      title: title,
-      brand: brand,
-      description: description,
-      price: Number(price),
-      stock: Number(stock),
-      image: image,
-      category: category,
-      catalogId,
-    };
-
-    axios
-      .post(`${API_URL}/api/items`, body)
-      .then((response) => {
-        // Reset the state
-        setTitle("");
-        setBrand("");
-        setDescription("");
-        setPrice(0);
-        setStock(0);
-        setImage("");
-        setCategory("");
-        alert("Item been added!");
-        navigate(`/allcatalogs/${catalogId}`);
-      })
-      .catch((error) => console.log(error));
-  }; */
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -83,12 +51,40 @@ export default function AddItemPage() {
         setStock(0);
         setImageUrl("");
         setCategory("");
-        setCatalogId("");
         alert("Item been added!");
-        navigate(`/allcatalogs/${catalogId}`);
+        navigate(`/allcatalogs/${catalogId}/`);
       })
-      .catch((err) => console.log("Error while adding the new movie: ", err));
+      .catch((err) => console.log("Error while adding the new item: ", err));
   };
+
+  /*   const handleSubmit = (e) => {
+    e.preventDefault();
+    const body = {
+      title: title,
+      brand: brand,
+      description: description,
+      price: Number(price),
+      stock: Number(stock),
+      imageUrl: imageUrl,
+      category: category,
+    };
+
+    axios
+      .post(`${API_URL}/api/items`, body)
+      .then((response) => {
+        // Reset the state
+        setTitle("");
+        setBrand("");
+        setDescription("");
+        setPrice(0);
+        setStock(0);
+        setImageUrl("");
+        setCategory("");
+        alert("Item been added!");
+        navigate(`/allcatalogs`);
+      })
+      .catch((error) => console.log(error));
+  }; */
 
   return (
     <>

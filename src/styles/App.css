@@ -301,8 +301,8 @@ h4 {
   display: flex;
   width: 100%;
   margin-left: 100px;
-  justify-content: start;
-  align-items: start;
+  justify-content: flex-start;
+  align-items: flex-start;
   gap: 20px;
 }
 
