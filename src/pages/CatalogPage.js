@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import axios from "axios";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import Title from "../components/Title";
 import service from "../api/service";
 
@@ -14,6 +14,8 @@ function CatalogPage() {
   const [imageUrl, setImageUrl] = useState(null);
   const { catalogId } = useParams();
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     axios
       .get(`${API_URL}/api/allcatalogs/${catalogId}`)
@@ -23,6 +25,16 @@ function CatalogPage() {
       })
       .catch((err) => console.log(err));
   }, []);
+
+  const deleteCatalog = () => {
+    axios
+      .delete(`${API_URL}/api/allcatalogs/${catalogId}`)
+      .then(() => {
+        alert("Catalog has been deleted!");
+        navigate(`/allcatalogs`);
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <>
@@ -35,6 +47,11 @@ function CatalogPage() {
         </Link>
         <Link to={`/allcatalogs`}>
           <button className="outlined-btn">Back to all catalogs</button>
+        </Link>
+        <Link to={`/allcatalogs`}>
+          <button onClick={deleteCatalog} className="outlined-btn">
+            Delete catalog
+          </button>
         </Link>
       </div>
       <h5>{title} Collection </h5>
