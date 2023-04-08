@@ -280,14 +280,13 @@ h4 {
   align-items: flex-start;
 }
 
-.submit-item-btn {
-  margin: 20px;
+.AddItemInfoColumn select {
   border-radius: 20px;
-  width: 270px;
-  color: rgb(255, 255, 255);
-  background-color: #adadad;
-  border: none;
+  padding: 0px 20px 0px 20px;
+  width: 470px;
+  color: rgb(79, 77, 77);
   height: 42px;
+  border-style: none;
 }
 
 .AddItemForm input {
@@ -313,6 +312,17 @@ h4 {
   background-color: #ffffff;
   border-style: none;
 }
+
+.submit-item-btn {
+  margin: 20px;
+  border-radius: 20px;
+  width: 270px;
+  color: rgb(255, 255, 255);
+  background-color: #adadad;
+  border: none;
+  height: 42px;
+}
+
 /* ADD ITEM STYLE ENDS HERE */
 
 /* DISPLAY  ITEM STYLE STARTS HERE */

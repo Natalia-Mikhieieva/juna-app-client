@@ -113,18 +113,18 @@ export default function AddItemPage() {
               value={title}
             />
 
-<div>
             <label>Category</label>
-            <br />
-            <select name="category"
+            <select
+              name="category"
               onChange={(e) => setCategory(e.target.value)}
-              value={category}>
-            <option value="sofa">Sofa</option>
-            <option value="table">Table</option>
-            <option value="bed">Bed</option>
-            <option value="chair">Chair</option>
+              value={category}
+            >
+              <option value="sofa">Sofa</option>
+              <option value="table">Table</option>
+              <option value="bed">Bed</option>
+              <option value="chair">Chair</option>
             </select>
-</div>
+
             <label>Brand</label>
             <input
               type="text"
