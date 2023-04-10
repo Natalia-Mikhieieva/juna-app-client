@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/Navbar.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 
@@ -14,9 +14,9 @@ function Navbar() {
   return (
     <nav className="navigation">
       <div className="brand">
-        <a href="/" className="brand-name">
+        <NavLink to="/" className="brand-name">
           <h5 className="nav-name-juna">JUNA</h5>
-        </a>
+        </NavLink>
         <NavLink to="/">
           <img
             src="https://www.svgrepo.com/show/323714/abstract-039.svg"
@@ -49,11 +49,11 @@ function Navbar() {
               <div className="dropdown">
                 <button className="btn dropbtn">All Collections </button>
                 <div className="dropdown-content">
-                  <a href="/wholecatalog">All</a>
-                  <a href="/allcatalogs">Sofas</a>
-                  <a href="/allcatalogs">Tables</a>
-                  <a href="/allcatalogs">Beds</a>
-                  <a href="/allcatalogs">Chairs</a>
+                  <Link to="/wholecatalog">All</Link>
+                  <Link to="/allcatalogs">Sofas</Link>
+                  <Link to="/allcatalogs">Tables</Link>
+                  <Link to="/allcatalogs">Beds</Link>
+                  <Link to="/allcatalogs">Chairs</Link>
                 </div>
               </div>
             </NavLink>

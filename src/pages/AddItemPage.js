@@ -37,6 +37,7 @@ export default function AddItemPage() {
       .createItem({
         title,
         description,
+        brand,
         price,
         stock,
         imageUrl,

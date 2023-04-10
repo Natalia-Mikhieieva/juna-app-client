@@ -3,14 +3,12 @@ import Navbar from "../components/Navbar";
 import axios from "axios";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import Title from "../components/Title";
-import service from "../api/service";
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
 
 function CatalogPage() {
   const [items, setItems] = useState([]);
   const [title, setTitle] = useState(null);
-  const [description, setDescription] = useState(null);
   const [imageUrl, setImageUrl] = useState(null);
   const { catalogId } = useParams();
 

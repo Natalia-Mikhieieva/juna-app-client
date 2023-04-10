@@ -38,9 +38,11 @@ export default function EditItemPage(props) {
         const oneItem = response.data;
         setTitle(oneItem.title);
         setDescription(oneItem.description);
+        setCategory(oneItem.category);
         setBrand(oneItem.brand);
         setImageUrl(oneItem.imageUrl);
         setPrice(oneItem.price);
+        setStock(oneItem.stock);
       })
       .catch((error) => console.log(error));
   }, [itemId]);
@@ -105,6 +107,17 @@ export default function EditItemPage(props) {
               onChange={(e) => setTitle(e.target.value)}
               value={title}
             />
+            <label>Category</label>
+            <select
+              name="category"
+              onChange={(e) => setCategory(e.target.value)}
+              value={category}
+            >
+              <option value="sofa">Sofa</option>
+              <option value="table">Table</option>
+              <option value="bed">Bed</option>
+              <option value="chair">Chair</option>
+            </select>
 
             <label>Brand</label>
             <input
