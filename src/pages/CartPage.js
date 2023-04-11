@@ -8,8 +8,14 @@ export default function CartPage() {
     <>
       <Navbar> </Navbar>
       <Title text="Your selected products"> </Title>
-      <div className="cart-page"> <p>The cart is empty </p></div>
-      
+      <div className="cart-page">
+        {" "}
+        <p>The cart is empty </p>
+      </div>
     </>
   );
 }
+
+// how to create shopping cart in react ?
+
+

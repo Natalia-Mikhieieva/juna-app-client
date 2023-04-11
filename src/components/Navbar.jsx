@@ -14,9 +14,9 @@ function Navbar() {
   return (
     <nav className="navigation">
       <div className="brand">
-        <a href="/" className="brand-name">
+        <NavLink to="/" className="brand-name">
           <h5 className="nav-name-juna">JUNA</h5>
-        </a>
+        </NavLink>
         <NavLink to="/">
           <img
             src="https://www.svgrepo.com/show/323714/abstract-039.svg"
@@ -50,10 +50,10 @@ function Navbar() {
                 <Link to="/allcatalogs"><button className="btn dropbtn"> All Collections </button></Link> 
                 <div className="dropdown-content">
                   <Link to="/wholecatalog">All</Link>
-                  <a href="/allcatalogs">Sofas</a>
-                  <a href="/allcatalogs">Tables</a>
-                  <a href="/allcatalogs">Beds</a>
-                  <a href="/allcatalogs">Chairs</a>
+                  <Link to="/allcatalogs">Sofas</Link>
+                  <Link to="/allcatalogs">Tables</Link>
+                  <Link to="/allcatalogs">Beds</Link>
+                  <Link to="/allcatalogs">Chairs</Link>
                 </div>
               </div>
            
