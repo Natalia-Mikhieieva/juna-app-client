@@ -5,28 +5,21 @@ import { useNavigate, useParams } from "react-router-dom";
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
 
-function Comments(){
-    const [comments, setComments] = useState([])
+function Comments({comments}){
+   // const [comments, setComments] = useState([])
     const [message, setMessage] = useState('')
     const { commentId } = useParams()
-    const {itemId} = useParams()
+    const { itemId } = useParams()
 
     const navigate = useNavigate()
 
-    useEffect(()=> {
-        axios.get(`${API_URL}/api/comments/${commentId}`)
-        .then((responce)=>{
-            setComments(responce.data)
-            console.log("responce data Comment:",responce.data)
-
-        })
-        .catch((err) => console.log(err));
-    })
     const handleSubmit = (e) => {
         e.preventDefault();
+
+    
     
         axios
-          .post(`${API_URL}/item/${itemId}/comments`, message)
+          .post(`${API_URL}/api/item/${itemId}/comments`, { message })
           .then((res) => {
             setMessage("")
             alert("Comment been added!");
@@ -34,6 +27,7 @@ function Comments(){
           })
           .catch((err) => console.log("Error while adding the new comment: ", err));
       };
+
       const deleteComment = () => {
         axios
           .delete(`${API_URL}/api/comments/${commentId}`)
@@ -62,7 +56,7 @@ function Comments(){
         
         <br />
         <h3>Reviews:</h3>
-        {
+        {comments &&
             comments.map((comment) =>{
                 return(
                 <div>

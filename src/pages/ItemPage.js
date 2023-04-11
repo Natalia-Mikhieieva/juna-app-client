@@ -36,7 +36,7 @@ export default function ItemPage() {
         setBrand(response.data.brand);
         setStock(response.data.stock);
         setPrice(response.data.price);
-        setComment(response.data.comment);
+        setComment(response.data.comments);
         setImageUrl(response.data.imageUrl);
       })
       .catch((err) => console.log(err));
@@ -64,12 +64,12 @@ export default function ItemPage() {
           <p>Brand: {brand} </p>
           <p>Available stock: {stock}</p>
           <p>Price: {price} </p>
-          <p>Comment: {comment} </p>
+          {/* <p>Comment: {comment} </p> */}
           <Link to={`/item/${catalogId}/${itemId}/edit`}>
             <button className="edit-item-btn">Edit this Item</button>
           </Link>
         </div>
-        <Comments></Comments>
+        <Comments comments={comment} />
       </div>
     </>
   );

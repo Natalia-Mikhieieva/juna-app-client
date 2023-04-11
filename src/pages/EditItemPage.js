@@ -36,6 +36,7 @@ export default function EditItemPage(props) {
       .get(`${API_URL}/api/item/${itemId}`)
       .then((response) => {
         const oneItem = response.data;
+        
         setTitle(oneItem.title);
         setDescription(oneItem.description);
         setCategory(oneItem.category);
