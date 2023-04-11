@@ -42,6 +42,12 @@ const createItem = (newItem) => {
     .then((res) => res.data)
     .catch(errorHandler);
 };
+const createComment = (newComment) => {
+  return api
+  .post("item/:itemId/comments", newComment)
+  .then((res) => res.data)
+  .catch(errorHandler);
+}
 
 export default {
   getItems,
@@ -49,4 +55,5 @@ export default {
   uploadImage,
   createCatalog,
   createItem,
+  createComment
 };
