@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
 const api = axios.create({
   baseURL: process.env.REACT_APP_API_URL || "http://localhost:5005",
@@ -42,12 +43,7 @@ const createItem = (newItem) => {
     .then((res) => res.data)
     .catch(errorHandler);
 };
-const createComment = (newComment) => {
-  return api
-  .post("item/:itemId/comments", newComment)
-  .then((res) => res.data)
-  .catch(errorHandler);
-}
+
 
 export default {
   getItems,
@@ -55,5 +51,4 @@ export default {
   uploadImage,
   createCatalog,
   createItem,
-  createComment
 };

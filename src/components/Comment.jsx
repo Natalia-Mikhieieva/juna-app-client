@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import service from "../api/service";
+
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
 
@@ -9,14 +9,15 @@ function Comments(){
     const [comments, setComments] = useState([])
     const [message, setMessage] = useState('')
     const { commentId } = useParams()
+    const {itemId} = useParams()
 
     const navigate = useNavigate()
 
     useEffect(()=> {
         axios.get(`${API_URL}/api/comments/${commentId}`)
         .then((responce)=>{
-            setComments(responce.data.items.comments)
-            console.log("responce data Comment:",responce.data.items.comments)
+            setComments(responce.data)
+            console.log("responce data Comment:",responce.data)
 
         })
         .catch((err) => console.log(err));
@@ -24,12 +25,10 @@ function Comments(){
     const handleSubmit = (e) => {
         e.preventDefault();
     
-        service
-          .createComment({
-            message
-          })
+        axios
+          .post(`${API_URL}/item/${itemId}/comments`, message)
           .then((res) => {
-            setMessage()
+            setMessage("")
             alert("Comment been added!");
             navigate(0);
           })
@@ -53,9 +52,11 @@ function Comments(){
         <form onSubmit={handleSubmit}>
             <h3>Add a review:</h3>
 
-            <textarea name="message" cols="30" rows="2"></textarea>
+            <textarea cols="30" rows="2" type="string" name="comment"
+            onChange={(e) => setMessage(e.target.value)}
+            value={message}></textarea>
             <br/>
-            <button className="btn" type="submit">Comment</button>
+            <button className="btn" type="submit" >Comment</button>
         </form>
         </div>
         
