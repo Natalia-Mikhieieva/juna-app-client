@@ -1,5 +1,4 @@
 import { useState } from "react";
-import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Title from "../components/Title";
@@ -24,26 +23,6 @@ export default function AddCatalogPage() {
       })
       .catch((err) => console.log("Error while uploading the file: ", err));
   };
-
-  /*  const handleSubmit = (e) => {
-    e.preventDefault();
-    const body = {
-      title: title,
-      description: description,
-    };
-
-    axios
-      .post(`${API_URL}/api/allcatalogs`, body)
-      .then((response) => {
-        setTitle("");
-        setDescription("");
-
-        // Navigate to the `/allcatalogs` page
-        alert("Catalog has been added!");
-        navigate("/allcatalogs");
-      })
-      .catch((error) => console.log(error));
-  }; */
 
   const handleSubmit = (e) => {
     e.preventDefault();
