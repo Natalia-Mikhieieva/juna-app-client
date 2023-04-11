@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/Navbar.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 
@@ -42,21 +42,21 @@ function Navbar() {
 
           {/* ALL COLLECTIONS */}
           <li className="nav-text">
-            <NavLink
-              to="/allcatalogs"
+            {/* <NavLink
+              to=""
               className={({ isActive }) => (isActive ? "selected" : "")}
-            >
+            > </NavLink> */}
               <div className="dropdown">
-                <button className="btn dropbtn">All Collections </button>
+                <Link to="/allcatalogs"><button className="btn dropbtn"> All Collections </button></Link> 
                 <div className="dropdown-content">
-                  <a href="/wholecatalog">All</a>
+                  <Link to="/wholecatalog">All</Link>
                   <a href="/allcatalogs">Sofas</a>
                   <a href="/allcatalogs">Tables</a>
                   <a href="/allcatalogs">Beds</a>
                   <a href="/allcatalogs">Chairs</a>
                 </div>
               </div>
-            </NavLink>
+           
           </li>
 
           {/* MY SPACE = only logged users can see it */}

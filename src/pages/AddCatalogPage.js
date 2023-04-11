@@ -33,7 +33,7 @@ export default function AddCatalogPage() {
     };
 
     axios
-      .post(`${API_URL}//api/allcatalogs`, body)
+      .post(`${API_URL}/api/allcatalogs`, body)
       .then((response) => {
         setTitle("");
         setDescription("");

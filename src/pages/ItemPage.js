@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import axios from "axios";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import Title from "../components/Title";
+import Comments from "../components/Comment"
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
 
@@ -68,6 +69,7 @@ export default function ItemPage() {
             <button className="edit-item-btn">Edit this Item</button>
           </Link>
         </div>
+        <Comments></Comments>
       </div>
     </>
   );
