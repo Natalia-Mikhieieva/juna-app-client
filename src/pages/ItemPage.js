@@ -64,16 +64,16 @@ export default function ItemPage() {
           <p>Brand: {brand} </p>
           <p>Available stock: {stock}</p>
           <p>Price: {price} </p>
-          {/* <p>Comment: {comment} </p> */}
+
           <Link to={`/item/${catalogId}/${itemId}/edit`}>
             <button className="edit-item-btn">Edit this Item</button>
           </Link>
           <Link to={`/item/${catalogId}/${itemId}`}>
             <button className="edit-item-btn">Add to Cart</button>
           </Link>
+
+          <Comments comments={comment} />
         </div>
-        <br />
-        <Comments comments={comment} />
       </div>
     </>
   );
