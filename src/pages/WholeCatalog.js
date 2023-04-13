@@ -6,34 +6,49 @@ import axios from "axios";
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
 
-function WholeCatalog() {
-    const [items, setItems] = useState("All")
-    const [filter, setFilter] = useState("")
+function WholeCatalog(props) {
+    const [items, setItems] = useState([])
+    // const [filter, setFilter] = useState("")
 
     useEffect(()=>{
-        axios.get(`${API_URL}/api/allcatalogs/item`)
+        axios.get(`${API_URL}/api/items`)
         .then((response) => {
             setItems(response.data);
+            console.log(response.data)
           })
         .catch(err=>console.log('There is an error', err))
-    })
+    }, [])
 
-    // function catFilter(e){
-    //     if(items.category === e.target.value) {
-    //         setFilter(e)
-    //         console.log(e)
-    //         return
-    //     } else {
-    //         return items
-    //     }
-    // }
+    function filter(fltr) {
+        const newItems = [...items]
+        if( fltr === "all"){
+            axios.get(`${API_URL}/api/items`)
+            .then((response) => {
+                setItems(response.data);
+                console.log(response.data)
+              })
+            .catch(err=>console.log('There is an error', err))
+        } else {
+        const filteredItems = newItems.filter((oneItem)=>{
+            return oneItem.category === fltr
+        })
+        setItems(filteredItems)
+    }}
     
     return(
         <>
         <Navbar></Navbar>
         <h1>All Items</h1>
 
-        <FilterItems items={items}></FilterItems>
+        <FilterItems filter={filter}></FilterItems>
+        { 
+            items.map((item)=>{
+            return(
+                <div>
+                    <p>{item.title}</p>
+                </div>
+            )
+        })}
        
 
       

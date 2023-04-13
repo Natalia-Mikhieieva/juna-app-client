@@ -1,15 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/Navbar.css";
 import { NavLink, Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
+import axios from "axios"
 
-function Navbar() {
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
+
+function Navbar(props) {
+  const [items, setItems] = useState([])
+
   const {
     isLoggedIn,
     user, // <== UPDATE
     logOutUser, // <== UPDATE
   } = useContext(AuthContext);
+
+//   function filter(fltr) {
+//     const newItems = [...items]
+//     if( fltr === "all"){
+//         axios.get(`${API_URL}/api/items`)
+//         .then((response) => {
+//             setItems(response.data);
+//             console.log(response.data)
+//           })
+//         .catch(err=>console.log('There is an error', err))
+//     } else {
+//     const filteredItems = newItems.filter((oneItem)=>{
+//         return oneItem.category === fltr
+//     })
+//     setItems(filteredItems)
+// }}
 
   return (
     <nav className="navigation">
