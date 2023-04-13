@@ -41,7 +41,7 @@ function Comments({comments}){
 
     return(
         <>
-        <br />
+        
         <div className="comment">
         <form onSubmit={handleSubmit}>
             <h3>Add a review:</h3>
@@ -61,9 +61,9 @@ function Comments({comments}){
                 return(
                 <div>
                     <p>{comment.message}</p>
-                    <img src="https://icons-for-free.com/download-icon-delete+remove+trash+trash+bin+trash+can+icon-1320073117929397588_512.png" alt="bin" onClick={deleteComment}/>
-
+                    <button className="bin-btn" onClick={deleteComment}><img src="https://icons-for-free.com/download-icon-delete+remove+trash+trash+bin+trash+can+icon-1320073117929397588_512.png" alt="bin" className="bin-btn" /></button>
                 </div>
+                
                 )
 
 

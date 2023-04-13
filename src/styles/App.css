@@ -502,3 +502,8 @@ img {
   margin-top: 20px;
   border-radius: 3px;
 }
+.bin-btn {
+  width:20px;
+  border: none;
+  background-color: white;
+}

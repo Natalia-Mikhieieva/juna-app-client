@@ -69,6 +69,7 @@ export default function ItemPage() {
             <button className="edit-item-btn">Edit this Item</button>
           </Link>
         </div>
+        <br />
         <Comments comments={comment} />
       </div>
     </>
