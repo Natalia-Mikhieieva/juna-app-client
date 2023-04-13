@@ -3,11 +3,13 @@ import Footer from "../components/Footer"
 import FilterItems from "../components/FilterItems"
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Link, useParams } from "react-router-dom"
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
 
 function WholeCatalog(props) {
     const [items, setItems] = useState([])
+    const { catalogId } = useParams()
     // const [filter, setFilter] = useState("")
 
     useEffect(()=>{
@@ -44,8 +46,15 @@ function WholeCatalog(props) {
         { 
             items.map((item)=>{
             return(
-                <div>
+                <div className="one-item-preview">
+                    <Link to={`/item/${catalogId}/${item._id}`}>
+                     
+                    <img src={item.imageUrl} alt="" />
                     <p>{item.title}</p>
+                    <span>£{item.price}</span>
+
+                    <button className="item-outlined-btn">Item details</button>
+                   </Link>
                 </div>
             )
         })}

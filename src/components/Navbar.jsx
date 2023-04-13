@@ -1,36 +1,15 @@
-import React, { useState } from "react";
 import "../styles/Navbar.css";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link} from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
-import axios from "axios"
 
-const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
 
-function Navbar(props) {
-  const [items, setItems] = useState([])
-
+function Navbar() {
   const {
     isLoggedIn,
     user, // <== UPDATE
     logOutUser, // <== UPDATE
   } = useContext(AuthContext);
-
-//   function filter(fltr) {
-//     const newItems = [...items]
-//     if( fltr === "all"){
-//         axios.get(`${API_URL}/api/items`)
-//         .then((response) => {
-//             setItems(response.data);
-//             console.log(response.data)
-//           })
-//         .catch(err=>console.log('There is an error', err))
-//     } else {
-//     const filteredItems = newItems.filter((oneItem)=>{
-//         return oneItem.category === fltr
-//     })
-//     setItems(filteredItems)
-// }}
 
   return (
     <nav className="navigation">
@@ -70,11 +49,12 @@ function Navbar(props) {
               <div className="dropdown">
                 <Link to="/allcatalogs"><button className="btn dropbtn"> All Collections </button></Link> 
                 <div className="dropdown-content">
-                  <Link to="/wholecatalog">All</Link>
-                  <Link to="/allcatalogs">Sofas</Link>
-                  <Link to="/allcatalogs">Tables</Link>
-                  <Link to="/allcatalogs">Beds</Link>
-                  <Link to="/allcatalogs">Chairs</Link>
+                  <Link to="/wholecatalog">All Items</Link>
+                  <Link to="/allcatalogs" value="chair">All Catalogs</Link>
+                  <Link to="/allcatalogs/64312edd76c2e928f07d7f90">Sofas</Link>
+                  <Link to="/allcatalogs/64307204353cdc94d1e86bfb">Tables</Link>
+                  <Link to="/allcatalogs/64307244353cdc94d1e86c01">Beds</Link>
+                  <Link to="/allcatalogs/64307260353cdc94d1e86c04" >Chairs</Link>
                 </div>
               </div>
            
