@@ -4,44 +4,42 @@ import { useNavigate, useParams } from "react-router-dom";
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
 
-function Comments({comments}) {
- // const [comments, setComments] = useState([]);
+function Comments({ comments }) {
+  // const [comments, setComments] = useState([]);
   const [message, setMessage] = useState("");
   const { commentId } = useParams();
-  const {  itemId  } = useParams();
+  const { itemId } = useParams();
 
   const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-    
-    
-        axios
-          .post(`${API_URL}/api/item/${itemId}/comments`, { message })
-          .then((res) => {
-            setMessage("")
-            alert("Comment been added!");
-            navigate(0);
-          })
-          .catch((err) => console.log("Error while adding the new comment: ", err));
-      };
+    axios
+      .post(`${API_URL}/api/item/${itemId}/comments`, { message })
+      .then((res) => {
+        setMessage("");
+        alert("Comment been added!");
+        navigate(0);
+      })
+      .catch((err) => console.log("Error while adding the new comment: ", err));
+  };
 
-      const deleteComment = () => {
-        axios
-          .delete(`${API_URL}/api/comments/${commentId}`)
-          .then(() => {
-            alert("Comment has been deleted!");
-            navigate(0);
-          })
-          .catch((err) => console.log(err));
-      };
+  const deleteComment = () => {
+    axios
+      .delete(`${API_URL}/api/comments/${commentId}`)
+      .then(() => {
+        alert("Comment has been deleted!");
+        navigate(0);
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <>
-      <div className="review">
-        <h6>Add a Review</h6>
-        <form onSubmit={handleSubmit} className="">
+      <div className="add-review">
+        <h5>Add a Review</h5>
+        <form onSubmit={handleSubmit} className="reviewform">
           <div className="comment-text-plus-button">
             <textarea
               cols="30"
@@ -51,31 +49,42 @@ function Comments({comments}) {
               onChange={(e) => setMessage(e.target.value)}
               value={message}
             ></textarea>
-            
+
             <button className="button-submit-review" type="submit">
               Submit review
             </button>
           </div>
         </form>
-        </div>
-        
-        <br />
-        <h3>Reviews:</h3>
+      </div>
+
+      <h5>Reviews from other users:</h5>
+      <div className="review-group-from-other-users">
         {comments &&
-            comments.map((comment) =>{
-                return(
-                <div>
-                    <p>{comment.message}</p>
-                    <button className="bin-btn" onClick={deleteComment}><img src="https://icons-for-free.com/download-icon-delete+remove+trash+trash+bin+trash+can+icon-1320073117929397588_512.png" alt="bin" className="bin-btn" /></button>
+          comments.map((comment) => {
+            return (
+              <div className="comment-message">
+                <div className="comment-message-and-stars">
+                  <img
+                    src="https://www.pngplay.com/wp-content/uploads/6/Golden-5-Star-Rating-PNG.png"
+                    alt="stars"
+                    className="stars"
+                  ></img>
+                  <p className="comment-area"> {comment.message}</p>
                 </div>
-                
-                )
 
-
-            })
-        }
-        </>
-    )
+                <button className="bin-button" onClick={deleteComment}>
+                  <img
+                    src="https://icons-for-free.com/download-icon-delete+remove+trash+trash+bin+trash+can+icon-1320073117929397588_512.png"
+                    alt="bin"
+                    className="bin-button-img"
+                  />
+                </button>
+              </div>
+            );
+          })}
+      </div>
+    </>
+  );
 }
 
 export default Comments;

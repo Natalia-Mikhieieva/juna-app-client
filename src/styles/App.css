@@ -395,14 +395,17 @@ h4 {
   gap: 10px;
 }
 
-.review {
+/* COMMENT STYLE  */
+
+.add-review {
   margin-top: 30px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
 }
-form {
+
+.reviewform {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -410,20 +413,62 @@ form {
 .comment-text-plus-button {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
+
+.comment-text-plus-button textarea {
+  border-radius: 10px;
+  width: 470px;
+  padding: 10px;
+}
+
 .button-submit-review {
   border-radius: 20px;
+  margin-top: 10px;
   width: 170px;
-  color: rgb(255, 255, 255);
-  background-color: #adadad;
+  color: rgb(107, 107, 107);
+  border-color: #adadad;
   border: none;
   height: 32px;
 }
 
-.reviews-from-other-users {
-  margin-top: 20px;
+.review-group-from-other-users {
+  margin-top: 30px;
+}
+
+.comment-message {
+  display: flex;
+  align-items: flex-start;
+  text-align: start;
+  background-color: rgb(240, 240, 240);
+  margin-bottom: 20px;
+  border-radius: 5px;
+  padding: 10px;
+}
+.comment-area {
+  border-radius: 20px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  border-color: #171717;
+  background-color: rgb(240, 240, 240);
+  width: 410px;
+  margin-right: 10px;
+  padding: 5px 10px 5px 10px;
+}
+.stars {
+  width: 70px;
+}
+
+.bin-button {
+  background-color: white;
+  border-style: none;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.bin-button-img {
+  width: 20px;
 }
 
 /* DISPLAY ITEM STYLE ENDS HERE */
@@ -440,8 +485,7 @@ form {
   color: rgb(0, 0, 0);
 }
 
-/* FINALIZED CODE ENDS HERE */
-
+/* FOOTER STYLE */
 .footer {
   background-color: #e6e6e6;
   display: inline-block;
@@ -464,7 +508,9 @@ img {
   width: 200px;
 }
 
-.AddCatalog {
+/* FINALIZED CODE ENDS HERE */
+
+/* .AddCatalog {
   width: 400px;
   text-align: center;
   margin-bottom: 20px;
@@ -518,10 +564,6 @@ img {
   text-align: center;
 }
 
-/* .btn:hover {
-  background-color: #8a8a8a;
-} */
-
 .btn {
   text-decoration: underline 1px;
   transition: 1s ease;
@@ -533,8 +575,4 @@ img {
   margin-top: 20px;
   border-radius: 3px;
 }
-.bin-btn {
-  width:20px;
-  border: none;
-  background-color: white;
-}
+ */
