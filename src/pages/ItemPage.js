@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import axios from "axios";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import Title from "../components/Title";
-import Comments from "../components/Comment"
+import Comments from "../components/Comment";
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
 
@@ -68,6 +68,10 @@ export default function ItemPage() {
           <Link to={`/item/${catalogId}/${itemId}/edit`}>
             <button className="edit-item-btn">Edit this Item</button>
           </Link>
+          <Link to={`/item/${catalogId}/${itemId}`}>
+            <button className="edit-item-btn">Add to Cart</button>
+          </Link>
+          <Comments></Comments>
         </div>
         <br />
         <Comments comments={comment} />
