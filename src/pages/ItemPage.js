@@ -64,11 +64,7 @@ export default function ItemPage() {
           <p>Brand: {brand} </p>
           <p>Available stock: {stock}</p>
           <p>Price: {price} </p>
-<<<<<<< HEAD
-
-=======
           {/* <p>Comment: {comment} </p> */}
->>>>>>> ba43d02ff22830d1ab15ebc911cd10e1bba6a065
           <Link to={`/item/${catalogId}/${itemId}/edit`}>
             <button className="edit-item-btn">Edit this Item</button>
           </Link>
@@ -77,11 +73,8 @@ export default function ItemPage() {
           </Link>
           <Comments></Comments>
         </div>
-<<<<<<< HEAD
-=======
         <br />
         <Comments comments={comment} />
->>>>>>> ba43d02ff22830d1ab15ebc911cd10e1bba6a065
       </div>
     </>
   );
