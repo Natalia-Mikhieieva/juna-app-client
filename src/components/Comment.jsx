@@ -8,6 +8,7 @@ function Comments({comments}) {
  // const [comments, setComments] = useState([]);
   const [message, setMessage] = useState("");
   const { commentId } = useParams();
+  console.log(commentId)
   const {  itemId  } = useParams();
 
   const navigate = useNavigate();
