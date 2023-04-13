@@ -238,7 +238,7 @@ h4 {
   border-color: #cac9c9;
   border-style: solid;
   height: 42px;
-  margin: 10px 10px 10px 30px;
+  margin: 10px 10px 10px 70px;
 }
 /* DISPLAY CATALOG STYLE ENDS HERE */
 
@@ -393,6 +393,37 @@ h4 {
   justify-content: flex-start;
   width: 100%;
   gap: 10px;
+}
+
+.review {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+form {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.comment-text-plus-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.button-submit-review {
+  border-radius: 20px;
+  width: 170px;
+  color: rgb(255, 255, 255);
+  background-color: #adadad;
+  border: none;
+  height: 32px;
+}
+
+.reviews-from-other-users {
+  margin-top: 20px;
 }
 
 /* DISPLAY ITEM STYLE ENDS HERE */
