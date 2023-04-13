@@ -71,7 +71,6 @@ export default function ItemPage() {
           <Link to={`/item/${catalogId}/${itemId}`}>
             <button className="edit-item-btn">Add to Cart</button>
           </Link>
-          <Comments></Comments>
         </div>
         <br />
         <Comments comments={comment} />
