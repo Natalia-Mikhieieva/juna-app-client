@@ -51,10 +51,10 @@ function Navbar() {
                 <div className="dropdown-content">
                   <Link to="/wholecatalog">All Items</Link>
                   <Link to="/allcatalogs" value="chair">All Catalogs</Link>
-                  <Link to="/allcatalogs/64312edd76c2e928f07d7f90">Sofas</Link>
-                  <Link to="/allcatalogs/64307204353cdc94d1e86bfb">Tables</Link>
-                  <Link to="/allcatalogs/64307244353cdc94d1e86c01">Beds</Link>
-                  <Link to="/allcatalogs/64307260353cdc94d1e86c04" >Chairs</Link>
+                  <Link to="/allcatalogs/6439f40418786a44f75dab91">Sofas</Link>
+                  <Link to="/allcatalogs/6439f594745b5f09c9267a59">Tables</Link>
+                  <Link to="/allcatalogs/6439f81dbe78481398eafa2b">Beds</Link>
+                  <Link to="/allcatalogs/6439f6e4745b5f09c9267abf" >Chairs</Link>
                 </div>
               </div>
            
